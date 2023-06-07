@@ -1,6 +1,6 @@
   <div class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
     <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-        <h2 class="font-semibold text-slate-800 dark:text-slate-100">Customers</h2>
+        <h2 class="font-semibold text-slate-800 dark:text-slate-100">Anggota</h2>
     </header>
     <div class="p-3">
         
@@ -11,16 +11,22 @@
                 <thead class="text-xs font-semibold uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50">
                     <tr>
                         <th class="p-2 whitespace-nowrap">
-                            <div class="font-semibold text-left">Name</div>
+                            <div class="font-semibold text-left">Nama</div>
                         </th>
                         <th class="p-2 whitespace-nowrap">
                             <div class="font-semibold text-left">Email</div>
                         </th>
                         <th class="p-2 whitespace-nowrap">
-                            <div class="font-semibold text-left">Spent</div>
+                            <div class="font-semibold text-left">Masa Jabatan</div>
                         </th>
                         <th class="p-2 whitespace-nowrap">
-                            <div class="font-semibold text-center">Country</div>
+                            <div class="font-semibold text-center">Jabatan</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Nomor Telepon</div>
+                        </th>
+                        <th class="p-2 whitespace-nowrap">
+                            <div class="font-semibold text-center">Angkatan</div>
                         </th>
                     </tr>
                 </thead>
@@ -39,10 +45,16 @@
                             <div class="text-left">alexshatov@gmail.com</div>
                         </td>
                         <td class="p-2 whitespace-nowrap">
-                            <div class="text-left font-medium text-green-500">$2,890.66</div>
+                            <div class="text-left">2021/2022</div>
                         </td>
                         <td class="p-2 whitespace-nowrap">
-                            <div class="text-lg text-center">🇺🇸</div>
+                            <div class="text-md text-center">Ketua</div>
+                        </td>
+                        <td class="p-2 whitespace-nowrap">
+                            <div class="text-sm text-center">+6282195896199</div>
+                        </td>
+                        <td class="p-2 whitespace-nowrap">
+                            <div class="text-sm text-center">2020</div>
                         </td>
                     </tr>
                     <tr>

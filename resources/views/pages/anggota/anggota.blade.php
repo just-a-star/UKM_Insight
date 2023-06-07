@@ -1,5 +1,25 @@
 <x-app-layout>
-    <div>
+    {{-- Container --}}
+    <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
         <x-dashboard.welcome-banner />
-    </div>
+
+        <div class="mb-2">
+            {{-- Tabel Anggota --}}
+            <x-dashboard.dashboard-card-10 />
+            
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+
+            <div><x-dashboard.dashboard-card-12 /></div>
+            {{-- Aktivitas terkini --}}
+            <div>
+                <x-dashboard.dashboard-card-06 />
+            </div>
+            {{-- Angkatan --}}
+            
+        </div>
+
+        </div>
+    </div id="">
+    
 </x-app-layout>
