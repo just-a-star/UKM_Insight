@@ -15,12 +15,9 @@ return new class extends Migration
         
         Schema::create('ukm', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('pengelola_id');
             $table->string('nama');
             $table->string('deskripsi');
             $table->timestamps();
-            // $table->foreign('anggota_id')->references('id')->on('anggota')->onDelete('cascade');    
-            // $table->foreign('pengelola_id')->references('id')->on('pengelola')->onDelete('cascade');
         });
 
         Schema::create('anggota', function (Blueprint $table) {
@@ -37,59 +34,66 @@ return new class extends Migration
             $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
         });
 
-        Schema::create('assets', function (Blueprint $table) {
+        Schema::create('aset', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('ukm_id');
             $table->string('nama');
             $table->string('deskripsi');
             $table->timestamps();
+
+            $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
         });
 
-        Schema::create('transaksi', function (Blueprint $table) {
+        Schema::create('dana_tetap', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('laporan_dana_id');
             $table->string('nama');
-            $table->string('tipe_transaksi'); //sengaja dijadikan string karena ada 2 tipe transaksi, yaitu pendapatan dan pengeluaran nanti di handle di controller
-            $table->date('waktu_transaksi'); 
             $table->string('deskripsi');
-            $table->decimal('jumlah', 12, 2);
+            $table->decimal('dana', 12, 2);
+            $table->date('tgl_penerimaan');
             $table->timestamps();
+
         });
-        
 
         Schema::create('keuangan_ukm', function (Blueprint $table) { //maksud keuangan ukm adalah total seluruh uang yang ada di UKM
             $table->id();
-            $table->unsignedBigInteger('transaksi_id');
+            
+            $table->unsignedBigInteger('ukm_id');
+            $table->unsignedBigInteger('aset_id');
+            $table->unsignedBigInteger('dana_tetap_id');
+            
             $table->string('nama');
             $table->string('deskripsi');
             $table->timestamps();
-
-            $table->foreign('transaksi_id')->references('id')->on('transaksi')->onDelete('cascade');
-            // $table->foreign('kegiatan_id')->references('id')->on('kegiatan')->onDelete('cascade');
-        });
-
-        Schema::create('kegiatan', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('keuangan_ukm_id');
-            $table->string('nama');
-            $table->string('skala');
-            $table->decimal('keuangan', 10, 2);
-            $table->date('tgl_pelaksanaan');
-            $table->timestamps();
             
-            $table->foreign('keuangan_ukm_id')->references('id')->on('keuangan_ukm')->onDelete('cascade');
-            // $table->foreign('laporan_pendanaan_kegiatan_id')->references('id')->on('laporan_pendanaan_kegiatan')->onDelete('cascade');
+            $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
+            $table->foreign('aset_id')->references('id')->on('aset')->onDelete('cascade');
+            $table->foreign('dana_tetap_id')->references('id')->on('dana_tetap')->onDelete('cascade');
+        
         });
 
         Schema::create('partisipan_kegiatan', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('kegiatan_id');
-            // $table->unsignedBigInteger('anggota_id');
+            $table->unsignedBigInteger('anggota_id');
             $table->string('role');
             $table->timestamps();
 
             
-            // $table->foreign('anggota_id')->references('id')->on('anggota')->onDelete('cascade');
+            $table->foreign('anggota_id')->references('id')->on('anggota')->onDelete('cascade');
         });
+
+        Schema::create('kegiatan', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('partisipan_kegiatan_id');
+            $table->string('nama');
+            $table->string('skala');
+            $table->decimal('keuangan', 12, 2);
+            $table->date('tgl_pelaksanaan');
+            $table->timestamps();
+            
+            $table->foreign('partisipan_kegiatan_id')->references('id')->on('partisipan_kegiatan')->onDelete('cascade');
+        });
+
+        
 
 
     }
@@ -103,11 +107,11 @@ return new class extends Migration
     {
         Schema::dropIfExists('partisipan_kegiatan');
         Schema::dropIfExists('keuangan');
-        Schema::dropIfExists('transaksi');
         Schema::dropIfExists('kegiatan');
-        Schema::dropIfExists('assets');
+        Schema::dropIfExists('aset');
         Schema::dropIfExists('anggota');
         Schema::dropIfExists('ukm');
-        Schema::dropIfExists('pengelola');
+        Schema::dropIfExists('dana_tetap');
+        
     }
 };
