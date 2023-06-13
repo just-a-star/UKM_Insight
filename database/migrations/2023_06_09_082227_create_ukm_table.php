@@ -106,7 +106,7 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('partisipan_kegiatan');
-        Schema::dropIfExists('keuangan');
+        Schema::dropIfExists('keuangan_ukm');
         Schema::dropIfExists('kegiatan');
         Schema::dropIfExists('aset');
         Schema::dropIfExists('anggota');
