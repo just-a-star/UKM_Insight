@@ -18,6 +18,9 @@
             {{-- Angkatan --}}
             
         </div>
+        <div class="mt-2">
+            <x-anggota.anggota-card-01/>
+        </div>
 
         </div>
     </div id="">

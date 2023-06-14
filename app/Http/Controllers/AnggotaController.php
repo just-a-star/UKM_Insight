@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\Models\Anggota;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Http;
     use App\Models\DataFeed;
@@ -9,16 +10,10 @@
 
     class AnggotaController extends Controller
     {
-
-        /**
-         * Displays the dashboard screen
-         *
-         * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-         */
         public function index()
         {
-            $dataFeed = new DataFeed();
-
-            return view('pages/anggota/anggota', compact('dataFeed'));
+            $members = Anggota::where('ukm_id', 1)->get();
+    
+            return view('pages/anggota/anggota', compact('members'));
         }
     }

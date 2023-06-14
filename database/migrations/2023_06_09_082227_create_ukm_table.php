@@ -56,19 +56,19 @@ return new class extends Migration
 
         Schema::create('keuangan_ukm', function (Blueprint $table) { //maksud keuangan ukm adalah total seluruh uang yang ada di UKM
             $table->id();
-
+            
             $table->unsignedBigInteger('ukm_id');
             $table->unsignedBigInteger('aset_id');
             $table->unsignedBigInteger('dana_tetap_id');
-
+            
             $table->string('nama');
             $table->string('deskripsi');
             $table->timestamps();
-
+            
             $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
             $table->foreign('aset_id')->references('id')->on('aset')->onDelete('cascade');
             $table->foreign('dana_tetap_id')->references('id')->on('dana_tetap')->onDelete('cascade');
-
+        
         });
 
         Schema::create('partisipan_kegiatan', function (Blueprint $table) {
@@ -77,7 +77,7 @@ return new class extends Migration
             $table->string('role');
             $table->timestamps();
 
-
+            
             $table->foreign('anggota_id')->references('id')->on('anggota')->onDelete('cascade');
         });
 
@@ -89,11 +89,11 @@ return new class extends Migration
             $table->decimal('keuangan', 12, 2);
             $table->date('tgl_pelaksanaan');
             $table->timestamps();
-
+            
             $table->foreign('partisipan_kegiatan_id')->references('id')->on('partisipan_kegiatan')->onDelete('cascade');
         });
 
-
+        
 
 
     }
@@ -106,12 +106,12 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('partisipan_kegiatan');
-        Schema::dropIfExists('keuangan');
+        Schema::dropIfExists('keuangan_ukm');
         Schema::dropIfExists('kegiatan');
         Schema::dropIfExists('aset');
         Schema::dropIfExists('anggota');
         Schema::dropIfExists('ukm');
         Schema::dropIfExists('dana_tetap');
-
+        
     }
 };
