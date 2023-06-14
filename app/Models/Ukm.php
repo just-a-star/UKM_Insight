@@ -17,4 +17,8 @@ class Ukm extends Model
     {
         return $this->hasMany(Anggota::class);
     }
+    public function asset()
+    {
+        return $this->hasMany(Asset::class);
+    }
 }

@@ -1,3 +1,8 @@
+@php
+    use App\Models\Asset;
+    $assets = Asset::with('ukm')->where('ukm_id', 1)->get();
+@endphp
+
 <div
     class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
     <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
@@ -25,23 +30,22 @@
                 </tr>
                 </thead>
                 <!-- Table body -->
+
                 <tbody class="text-sm divide-y divide-slate-100 dark:divide-slate-700">
+                @foreach($assets as $asset)
                 <tr>
                     <td class="p-2 whitespace-nowrap">
-                        <div class="text-left">1</div>
+                        <div class="text-left">{{$loop->iteration}}</div>
                     </td>
                     <td class="p-2 whitespace-nowrap">
-                        <div class="text-left">Samsung S23 Ultra</div>
+                        <div class="text-left">{{$asset['nama']}}</div>
                     </td>
                     <td class="p-2 whitespace-nowrap">
-                        <div class="text-left">dibeli dengan uang bintang</div>
+                        <div class="text-left">{{$asset['deskripsi']}}</div>
                     </td>
-                    <td class="p-2 whitespace-nowrap">
 
-
-                    </td>
                 </tr>
-
+                @endforeach
                 </tbody>
             </table>
 

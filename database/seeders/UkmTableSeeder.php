@@ -14,11 +14,12 @@ class UkmTableSeeder extends Seeder
      *
      * @return void
      */
-    
+
     public function run()
     {
         //
         DB::table('ukm')->insert([
+
             'nama' => 'Programming Study Club',
             'deskripsi' => 'UKM ini berfokus pada pengembangan skill programming',
             'created_at' => '2021-06-09 08:22:27',
@@ -32,7 +33,7 @@ class UkmTableSeeder extends Seeder
             $email = $faker->unique()->safeEmail;
             $address = $faker->address;
             $phone = $faker->phoneNumber;
-            
+
 
             DB::table('anggota')->insert([
                 'ukm_id' => 1,
@@ -40,11 +41,11 @@ class UkmTableSeeder extends Seeder
                 'posisi' => 'Anggota',
                 'masa_jabatan' => '2021-2022',
                 'angkatan' => $faker->numberBetween($min = 2017, $max = 2023),
-                'no_telepon' => $faker->phoneNumber,    
+                'no_telepon' => $faker->phoneNumber,
                 'email' => $email,
                 'created_at' => now(),
                 'updated_at' => now(),
-        
+
                 // Add other columns if necessary
             ]);
         }
