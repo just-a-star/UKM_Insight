@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+
 class AssetSeeder extends Seeder
 {
     /**
@@ -15,13 +16,13 @@ class AssetSeeder extends Seeder
      */
     public function run()
     {
-
+        // $id = 1;
         $faker = Faker::create('id_ID');
         for ($i = 0; $i < 10; $i++) {
             $nama = $faker->name;
             $deskripsi = $faker->word;
-            $id = $faker->randomNumber($nbDigits = 3, $strict = true);
-
+            // $id = $faker->randomNumber($nbDigits = 3, $strict = true);
+            $id = $faker-> unique()-> numberBetween(0, $max = PHP_INT_MAX);
 
             DB::table('aset')->insert([
                 'id'=> $id,
