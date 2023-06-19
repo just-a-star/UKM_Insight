@@ -1,14 +1,12 @@
 @php
-    use App\Models\Asset;
-    use App\Models\Ukm;
-    $random = Ukm::inRandomOrder()->first()->id;
-    $assets = Asset::with('ukm')->where('ukm_id', $random)->get();
+    use App\Models\Kegiatan;
+    $kegiatans = Kegiatan::with('partisipan')->get();
 @endphp
 
 <div
     class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
     <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
-        <h2 class="font-semibold text-slate-800 dark:text-slate-100">Asset</h2>
+        <h2 class="font-semibold text-slate-800 dark:text-slate-100">Daftar Kegiatan</h2>
     </header>
     <div class="p-3">
 
@@ -23,28 +21,43 @@
                         <div class="font-semibold text-left">No</div>
                     </th>
                     <th class="p-2 whitespace-nowrap">
-                        <div class="font-semibold text-left">Nama Asset</div>
+                        <div class="font-semibold text-left">Nama Kegiatan</div>
                     </th>
                     <th class="p-2 whitespace-nowrap">
-                        <div class="font-semibold text-left">Deksripsi</div>
+                        <div class="font-semibold text-left">Skala</div>
                     </th>
+                    <th class="p-2 whitespace-nowrap">
+                        <div class="font-semibold text-left">tgl_pelaksanaan</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                        <div class="font-semibold text-left">dana</div>
+                    </th>
+
 
                 </tr>
                 </thead>
                 <!-- Table body -->
 
                 <tbody class="text-sm divide-y divide-slate-100 dark:divide-slate-700">
-                @foreach($assets as $asset)
+                @foreach($kegiatans as $kegiatan)
                 <tr>
                     <td class="p-2 whitespace-nowrap">
                         <div class="text-left">{{$loop->iteration}}</div>
                     </td>
+
                     <td class="p-2 whitespace-nowrap">
-                        <div class="text-left">{{$asset['nama']}}</div>
+                        <div class="text-left">{{$kegiatan['nama']}}</div>
                     </td>
                     <td class="p-2 whitespace-nowrap">
-                        <div class="text-left">{{$asset['deskripsi']}}</div>
+                        <div class="text-left">{{$kegiatan['skala']}}</div>
                     </td>
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-left">{{$kegiatan['tgl_pelaksanaan']}}</div>
+                    </td>
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-left">{{$kegiatan['keuangan']}}</div>
+                    </td>
+
 
                 </tr>
                 @endforeach

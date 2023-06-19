@@ -17,20 +17,20 @@ class AssetSeeder extends Seeder
     {
 
         $faker = Faker::create('id_ID');
-        for ($i = 0; $i < 10; $i++) {
-            $nama = $faker->name;
+        for ($i = 0; $i < 11; $i++) {
             $deskripsi = $faker->word;
-            $id = $faker->randomNumber($nbDigits = 3, $strict = true);
+            $id_ukm = DB::table('ukm')->inRandomOrder()->first()->id;
 
-
-            DB::table('aset')->insert([
-                'id'=> $id,
-                'ukm_id' => 1,
-                'nama' => $nama,
+            for ($j = 0; $j < 10; $j++) {
+                DB::table('aset')->insert([
+                    'id' => $faker->unique()->randomNumber($nbDigits = 3, $strict = true),
+                    'ukm_id' => $id_ukm,
+                'nama' => $faker->name,
                 'deskripsi' => $deskripsi,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+            }
         }
     }
 }

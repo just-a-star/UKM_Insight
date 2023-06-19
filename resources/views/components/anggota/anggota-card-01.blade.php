@@ -1,7 +1,9 @@
 <!-- Include the necessary Blade directives at the top of the file -->
 @php
     use App\Models\Anggota;
-    $members = Anggota::with('ukm')->where('ukm_id', 1)->get();
+    use App\Models\Ukm;
+        $random =Ukm::inRandomOrder()->first()->id;
+    $members = Anggota::with('ukm')->where('ukm_id', $random)->get();
 @endphp
 
 <div class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">

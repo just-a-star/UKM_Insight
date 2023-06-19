@@ -21,4 +21,6 @@ class Ukm extends Model
     {
         return $this->hasMany(Asset::class);
     }
+
+
 }

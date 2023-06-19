@@ -4,23 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Ukm;
 
-class Anggota extends Model
+class Kegiatan extends Model
 {
     use HasFactory;
 
-    protected $table = 'anggota';
-
-    protected $fillable = ['ukm_id', 'nama', 'posisi', 'masa_jabatan', 'angkatan', 'no_telepon', 'email'];
-
+    protected $table = 'kegiatan';
+    protected $fillable = ['nama', 'skala', 'keuangan', 'tgl_pelaksanaan'];
     public function ukm()
     {
         return $this->belongsTo(Ukm::class);
     }
+
     public function partisipan()
     {
         return $this->hasMany(Partisipan::class);
     }
-
 }

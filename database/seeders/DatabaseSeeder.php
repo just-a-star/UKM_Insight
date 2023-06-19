@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             DashboardTableSeeder::class,
             UkmTableSeeder::class,
             AssetSeeder::class,
+            KegiatanSeeder::class,
+            PartisipanSeeder::class,
         ]);
     }
 }
