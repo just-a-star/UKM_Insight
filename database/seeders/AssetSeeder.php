@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+
 class AssetSeeder extends Seeder
 {
     /**
@@ -15,7 +16,7 @@ class AssetSeeder extends Seeder
      */
     public function run()
     {
-
+        // $id = 1;
         $faker = Faker::create('id_ID');
         for ($i = 0; $i < 11; $i++) {
             $deskripsi = $faker->word;
