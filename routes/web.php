@@ -5,6 +5,7 @@ use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\AssetsController;
+use App\Http\Controllers\KeuanganController;
 
 use App\Http\Controllers\KegiatanController;
 /*
@@ -30,6 +31,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/assets', [AssetsController::class, 'index'])->name('assets');
     Route::get('/kegiatan', [KegiatanController::class, 'kegiatan'])->name('kegiatan');
     Route::get('/kegiatan/partisipan', [KegiatanController::class, 'partisipan'])->name('partisipan');
+    Route::get('/keuangan', [KeuanganController::class, 'keuangan'])->name('keuangan');
+    Route::get('/keuangan/dana', [KeuanganController::class, 'dana'])->name('dana');
+
     Route::fallback(function() {
         return view('pages/utility/404');
     });

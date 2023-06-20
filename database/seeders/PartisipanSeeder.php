@@ -18,7 +18,7 @@ class PartisipanSeeder extends Seeder
     {
 
         $faker = Faker::create('id_ID');
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $role = $faker->word;
             $id = $faker->unique()->randomNumber($nbDigits = 3, $strict = true);
             $kegiatan_id = DB::table('kegiatan')->inRandomOrder()->first()->id;

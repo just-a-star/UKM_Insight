@@ -20,7 +20,9 @@ class Ukm extends Model
     public function asset()
     {
         return $this->hasMany(Asset::class);
+    }    public function keuangan()
+    {
+        return $this->hasMany(Keuangan::class);
     }
-
 
 }

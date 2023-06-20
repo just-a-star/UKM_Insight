@@ -19,5 +19,8 @@ class Kegiatan extends Model
     public function partisipan()
     {
         return $this->hasMany(Partisipan::class);
+    }    public function keuangan()
+    {
+        return $this->hasMany(Keuangan::class);
     }
 }

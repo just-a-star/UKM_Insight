@@ -18,11 +18,11 @@ class AssetSeeder extends Seeder
     {
         // $id = 1;
         $faker = Faker::create('id_ID');
-        for ($i = 0; $i < 11; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $deskripsi = $faker->word;
             $id_ukm = DB::table('ukm')->inRandomOrder()->first()->id;
 
-            for ($j = 0; $j < 10; $j++) {
+            for ($j = 0; $j < 20; $j++) {
                 DB::table('aset')->insert([
                     'id' => $faker->unique()->randomNumber($nbDigits = 3, $strict = true),
                     'ukm_id' => $id_ukm,

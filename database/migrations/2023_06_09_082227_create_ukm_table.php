@@ -44,32 +44,6 @@ return new class extends Migration
             $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
         });
 
-        Schema::create('dana_tetap', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('deskripsi');
-            $table->decimal('dana', 12, 2);
-            $table->date('tgl_penerimaan');
-            $table->timestamps();
-
-        });
-
-        Schema::create('keuangan_ukm', function (Blueprint $table) { //maksud keuangan ukm adalah total seluruh uang yang ada di UKM
-            $table->id();
-
-            $table->unsignedBigInteger('ukm_id');
-            $table->unsignedBigInteger('aset_id');
-            $table->unsignedBigInteger('dana_tetap_id');
-
-            $table->string('nama');
-            $table->string('deskripsi');
-            $table->timestamps();
-
-            $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
-            $table->foreign('aset_id')->references('id')->on('aset')->onDelete('cascade');
-            $table->foreign('dana_tetap_id')->references('id')->on('dana_tetap')->onDelete('cascade');
-
-        });
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ukm_id');
@@ -79,6 +53,26 @@ return new class extends Migration
             $table->date('tgl_pelaksanaan');
             $table->timestamps();
             $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
+        });
+
+        Schema::create('keuangan_ukm', function (Blueprint $table) { //maksud keuangan ukm adalah total seluruh uang yang ada di UKM
+            $table->id();
+            $table->unsignedBigInteger('kegiatan_id');
+            $table->string('nama');
+            $table->string('deskripsi');
+            $table->timestamps();
+            $table->foreign('kegiatan_id')->references('id')->on('kegiatan')->onDelete('cascade');
+        });
+
+        Schema::create('dana_tetap', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('keuangan_id');
+            $table->string('nama');
+            $table->string('deskripsi');
+            $table->decimal('dana', 12, 2);
+            $table->date('tgl_penerimaan');
+            $table->timestamps();
+            $table->foreign('keuangan_id')->references('id')->on('keuangan_ukm')->onDelete('cascade');
         });
 
         Schema::create('partisipan_kegiatan', function (Blueprint $table) {
@@ -107,11 +101,12 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('partisipan_kegiatan');
+        Schema::dropIfExists('dana_tetap');
         Schema::dropIfExists('keuangan_ukm');
         Schema::dropIfExists('kegiatan');
         Schema::dropIfExists('aset');
         Schema::dropIfExists('anggota');
         Schema::dropIfExists('ukm');
-        Schema::dropIfExists('dana_tetap');
+
     }
 };

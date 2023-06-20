@@ -26,7 +26,7 @@ class UkmTableSeeder extends Seeder
 //            'updated_at' => '2021-06-09 08:22:27',
 //        ]);
         $faker = Faker::create('id_ID');
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 2; $i++) {
             $nama = $faker->name;
             $deskripsi = $faker->word;
             $id = $faker->unique()->randomNumber($nbDigits = 3, $strict = true);
