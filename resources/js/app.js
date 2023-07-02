@@ -21,6 +21,7 @@ import dashboardCard06 from './components/dashboard-card-06';
 import dashboardCard08 from './components/dashboard-card-08';
 import dashboardCard09 from './components/dashboard-card-09';
 import dashboardCard11 from './components/dashboard-card-11';
+import dasborAngkatan from './components/dasbor-angkatan';
 
 // Call Alpine
 window.Alpine = Alpine;
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       instance.element.value = dateStr.replace('to', '-');
     },
   });
+  dasborAngkatan();
   dashboardCard01();
   dashboardCard02();
   dashboardCard03();
