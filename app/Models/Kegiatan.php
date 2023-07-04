@@ -10,7 +10,7 @@ class Kegiatan extends Model
     use HasFactory;
 
     protected $table = 'kegiatan';
-    protected $fillable = ['nama', 'skala', 'keuangan', 'tgl_pelaksanaan'];
+    protected $fillable = ['nama', 'skala', 'dana', 'tgl_pelaksanaan'];
     public function ukm()
     {
         return $this->belongsTo(Ukm::class);
@@ -19,8 +19,14 @@ class Kegiatan extends Model
     public function partisipan()
     {
         return $this->hasMany(Partisipan::class);
-    }    public function keuangan()
-    {
-        return $this->hasMany(Keuangan::class);
+    }    
+
+    public function dana(){
+        return $this->hasMany(Dana::class);
     }
+    
+    // public function keuangan()
+    // {
+    //     return $this->hasMany(Keuangan::class);
+    // }
 }

@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+use App\Models\Ukm;
+use App\Models\Kegiatan;
 
 class KegiatanSeeder extends Seeder
 {
@@ -16,25 +18,57 @@ class KegiatanSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('id_ID');
-        for ($i = 0; $i < 5; $i++) {
-            $nama_kegiatan = $faker->word;
-            $skala = $faker->word;
-            $keuangan = $faker->randomNumber($nbDigits = 2, $strict = true);
-            $tanggal_pelaksanaan = $faker->date($format = 'Y-m-d', $max = 'now');
-            $id_ukm = DB::table('ukm')->inRandomOrder()->first()->id;
-            for ($j = 0; $j < 2; $j++){
-                DB::table('kegiatan')->insert([
-                    'id' => $faker->unique()->randomNumber($nbDigits = 3, $strict = true),
-                    'ukm_id' => $id_ukm,
-                    'nama' => $nama_kegiatan,
-                    'skala' => $skala,
-                    'keuangan' => $keuangan,
-                    'tgl_pelaksanaan' => $tanggal_pelaksanaan,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
-             }
+        $ukmPhotography = Ukm::find(1);
+        $ukmProgramming = Ukm::find(2);
+
+        $data = [
+            [
+                'nama' => 'Photography Workshop',
+                'skala' => 'Lokal',
+                
+                'tgl_pelaksanaan' => '2023-02-15',
+                'ukm_id' => $ukmPhotography->id,
+            ],
+            [
+                'nama' => 'Photography Competition',
+                'skala' => 'Nasional',
+                
+                'tgl_pelaksanaan' => '2023-03-10',
+                'ukm_id' => $ukmPhotography->id,
+            ],
+            [
+                'nama' => 'Photography Exhibition',
+                'skala' => 'Lokal',
+                
+                'tgl_pelaksanaan' => '2023-04-20',
+                'ukm_id' => $ukmPhotography->id,
+            ],
+            [
+                'nama' => 'Web Development Competition',
+                'skala' => 'Nasional',
+                
+                'tgl_pelaksanaan' => '2023-03-10',
+                'ukm_id' => $ukmProgramming->id,
+            ],
+            [
+                'nama' => 'Web Development Workshop',
+                'skala' => 'Lokal',
+                
+                'tgl_pelaksanaan' => '2023-02-15',
+                'ukm_id' => $ukmProgramming->id,
+            ],
+            [
+                'nama' => 'Programming Hackathon',
+                'skala' => 'Nasional',
+                
+                'tgl_pelaksanaan' => '2023-04-20',
+                'ukm_id' => $ukmProgramming->id,
+            ],
+            // Add more data as needed
+        ];
+        
+        foreach ($data as $item) {
+            Kegiatan::create($item);
         }
     }
 }

@@ -20,9 +20,10 @@ class DatabaseSeeder extends Seeder
             UkmTableSeeder::class,
             AssetSeeder::class,
             KegiatanSeeder::class,
-            PartisipanSeeder::class,
-            KeuanganUkmSeeder::class,
-            DanaTetapSeeder::class,
+            DanaSeeder::class,
+            AnggotaSeeder::class,
+            
+            PartisipanKegiatanSeeder::class,
         ]);
     }
 }

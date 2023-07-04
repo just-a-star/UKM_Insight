@@ -9,7 +9,7 @@ class Keuangan extends Model
 {
     use HasFactory;
     protected $table = 'keuangan_ukm';
-    protected $fillable = ['ukm_id', 'aset_id', 'dana_tetap_id', 'nama','deskripsi'];
+    protected $fillable = ['ukm_id', 'aset_id', 'dana_id', 'nama','deskripsi'];
     public function kegiatan()
     {
         return $this->belongsTo(Kegiatan::class);

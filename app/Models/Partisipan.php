@@ -1,4 +1,4 @@
-<?php
+<!-- 
 
 namespace App\Models;
 
@@ -18,4 +18,4 @@ class Partisipan extends Model
     {
         return $this->belongsTo(kegiatan::class);
     }
-}
+} -->
