@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'email' => 'ukmadmin@example.com',
             'password' => bcrypt('password'),
             'ukm_id' => 1, // Set the UKM ID if applicable
+            'roles_id' => 1,
         ]);
         $user1->assignRole('UKM_admin');
 
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
             'email' => 'executive@example.com',
             'password' => bcrypt('password'),
             'ukm_id' => null, // Set the UKM ID if applicable // null will be the executive code okay?
+            'roles_id' => 2,
         ]);
         $user2->assignRole('Executive');
 
