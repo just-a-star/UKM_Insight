@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -16,14 +17,17 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call([
+            
             DashboardTableSeeder::class,
             UkmTableSeeder::class,
             AssetSeeder::class,
             KegiatanSeeder::class,
             DanaSeeder::class,
             AnggotaSeeder::class,
+            RolesSeeder::class,
             
             PartisipanKegiatanSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
