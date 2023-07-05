@@ -24,6 +24,9 @@ class Kegiatan extends Model
     public function dana(){
         return $this->hasMany(Dana::class);
     }
+
+
+
     
     // public function keuangan()
     // {

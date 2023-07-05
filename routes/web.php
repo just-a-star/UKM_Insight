@@ -32,7 +32,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Route for the getting the data feed
     Route::get('/json-data-feed', [DataFeedController::class, 'getDataFeed'])
     ->name('json_data_feed');
-    
+    Route::get('/total-ukm', [DasborController::class, 'getTotalUkm'])->name('total_ukm');
+    Route::get('/total-ukm-aktif', [DasborController::class, 'getTotalUkmAktif'])->name('total_ukm_aktif');
+    Route::get('/total-ukm-tidak-aktif', [DasborController::class, 'getTotalUkmTidakAktif'])->name('total_ukm_tidak_aktif');
+    Route::get('/ukm-status', [DasborController::class, 'getTotalUkmStatus'])->name('ukm_status');
     Route::get('/total-anggota-per-angkatan', [AnggotaController::class, 'getTotalAnggotaPerAngkatan'])->name('total_anggota_per_angkatan');; 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota');

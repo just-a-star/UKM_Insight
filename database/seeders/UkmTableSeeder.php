@@ -29,6 +29,11 @@ class UkmTableSeeder extends Seeder
                 'nama' => 'Programming Study Club',
                 'deskripsi' => 'Sebuah UKM yang bergerak di bidang programming',
             ],
+            [
+                'nama' => 'UKM Basket',
+                'deskripsi' => 'Sebuah UKM yang bergerak di bidang basket',
+            ],
+            
         ];
         foreach ($data as $item) {
             Ukm::create($item);

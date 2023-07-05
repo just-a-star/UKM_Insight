@@ -20,6 +20,7 @@ class KegiatanSeeder extends Seeder
     {
         $ukmPhotography = Ukm::find(1);
         $ukmProgramming = Ukm::find(2);
+        $ukmBasket = Ukm::find(3);
 
         $data = [
             [
@@ -63,6 +64,27 @@ class KegiatanSeeder extends Seeder
                 
                 'tgl_pelaksanaan' => '2023-04-20',
                 'ukm_id' => $ukmProgramming->id,
+            ],
+            [
+                'nama' => 'Basket Competition',
+                'skala' => 'Nasional',
+                
+                'tgl_pelaksanaan' => '2022-03-10',
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Basket Workshop',
+                'skala' => 'Lokal',
+                
+                'tgl_pelaksanaan' => '2022-02-15',
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Basket Exhibition',
+                'skala' => 'Lokal',
+                
+                'tgl_pelaksanaan' => '2022-04-20',
+                'ukm_id' => $ukmBasket->id,
             ],
             // Add more data as needed
         ];

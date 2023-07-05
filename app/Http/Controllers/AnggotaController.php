@@ -23,7 +23,7 @@ class AnggotaController extends Controller
         $random = Ukm::inRandomOrder()->first()->id;
         $members = Anggota::select('angkatan', DB::raw('count(*) as total_anggota'))
             ->with('ukm')
-            ->where('ukm_id', 516)
+            ->where('ukm_id', 1)
             ->groupBy('angkatan') // Add the GROUP BY clause for 'angkatan' column
             ->get();
     
