@@ -12,6 +12,8 @@
         <x-dasbor.dasbor-total-member />
 
         <x-dasbor.dasbor-ukm-aktif />
+
+        <x-dasbor.dasbor-skala-kegiatan />
     </div>
 
 </x-app-layout>

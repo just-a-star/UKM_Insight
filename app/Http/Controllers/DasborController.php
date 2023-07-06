@@ -61,4 +61,23 @@ class DasborController extends Controller
     return response()->json($result);
 }
 
+public function getPopularActivities()
+{
+    $popularActivities = DB::select("
+    SELECT
+        kegiatan.id,
+        kegiatan.nama,
+        COUNT(partisipan_kegiatan.id) AS total_partisipan
+    FROM kegiatan
+    LEFT JOIN partisipan_kegiatan ON kegiatan.id = partisipan_kegiatan.kegiatan_id
+    GROUP BY kegiatan.id, kegiatan.nama
+    ORDER BY total_partisipan DESC
+    LIMIT 5
+");
+
+
+
+    return response()->json($popularActivities);
+
+}
 }

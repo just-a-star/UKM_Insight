@@ -23,6 +23,7 @@ import dashboardCard09 from "./components/dashboard-card-09";
 import dashboardCard11 from "./components/dashboard-card-11";
 import dasborAngkatan from "./components/dasbor-angkatan";
 import dasborUkmAktif from "./components/dasbor-ukm-aktif";
+import dasborSkalaKegiatan from "./components/dasbor-skala-kegiatan-card";
 
 // Call Alpine
 window.Alpine = Alpine;
@@ -141,4 +142,5 @@ document.addEventListener("DOMContentLoaded", () => {
     dashboardCard09();
     dashboardCard11();
     dasborUkmAktif();
+    dasborSkalaKegiatan();
 });

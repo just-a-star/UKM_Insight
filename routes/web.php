@@ -37,6 +37,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/total-ukm-tidak-aktif', [DasborController::class, 'getTotalUkmTidakAktif'])->name('total_ukm_tidak_aktif');
     Route::get('/ukm-status', [DasborController::class, 'getTotalUkmStatus'])->name('ukm_status');
     Route::get('/total-anggota-per-angkatan', [AnggotaController::class, 'getTotalAnggotaPerAngkatan'])->name('total_anggota_per_angkatan');; 
+    Route::get('/popular-activities', [DasborController::class, 'getPopularActivities'])->name('popular_activities');
+    Route::get('/skala-kegiatan-distribution', [KegiatanController::class, 'getSkalaKegiatanDistribution'])->name('skala_kegiatan_distribution');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota');
     Route::get('/assets', [AssetsController::class, 'index'])->name('assets');
