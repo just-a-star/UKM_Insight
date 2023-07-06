@@ -59,6 +59,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('ukm_id');
             $table->string('nama');
             $table->string('skala');
+            $table->string('kategori');
             $table->date('tgl_pelaksanaan');
             $table->timestamps();
             $table
@@ -97,19 +98,7 @@ return new class extends Migration {
                 ->onDelete('cascade');
         });
 
-        // Schema::create('keuangan_ukm', function (Blueprint $table) { //maksud keuangan ukm adalah total seluruh uang yang ada di UKM
-        //     $table->id();
-        //     $table->unsignedBigInteger('ukm_id');
-        //     // $table->unsignedBigInteger('aset_id')->nullable();
-        //     $table->unsignedBigInteger('dana_id')->nullable();
-        //     $table->string('nama');
-        //     $table->string('deskripsi');
-        //     $table->timestamps();
-        //     // $table->foreign('kegiatan_id')->references('id')->on('kegiatan')->onDelete('cascade');
-        //     // $table->foreign('aset_id')->references('id')->on('aset')->onDelete('cascade');
-        //     $table->foreign('ukm_id')->references('id')->on('ukm')->onDelete('cascade');
-        //     $table->foreign('dana_id')->references('id')->on('dana')->onDelete('cascade');
-        // });
+        
 
         Schema::create('partisipan_kegiatan', function (Blueprint $table) {
             $table->id();
@@ -129,6 +118,23 @@ return new class extends Migration {
                 ->on('kegiatan')
                 ->onDelete('cascade');
         });
+
+        Schema::create('feedback_kegiatan', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('kegiatan_id');
+            $table->unsignedBigInteger('partisipan_kegiatan_id');
+            $table->string('rating');
+            $table->string('komentar');
+            $table->timestamps();
+
+            $table
+                ->foreign('kegiatan_id')
+                ->references('id')
+                ->on('kegiatan')
+                ->onDelete('cascade');
+                $table->foreign('partisipan_kegiatan_id')->references('id')->on('partisipan_kegiatan')->onDelete('cascade');
+                
+        });
     }
 
     /**
@@ -140,6 +146,7 @@ return new class extends Migration {
     {
         Schema::dropIfExists('partisipan_kegiatan');
         Schema::dropIfExists('dana');
+        Schema::dropIfExists('feedback_kegiatan');
 
         Schema::dropIfExists('kegiatan');
         Schema::dropIfExists('aset');

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             AnggotaSeeder::class,
             
             PartisipanKegiatanSeeder::class,
+            FeedbackKegiatanSeeder::class,
         ]);
     }
 }

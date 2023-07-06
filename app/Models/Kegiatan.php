@@ -10,7 +10,7 @@ class Kegiatan extends Model
     use HasFactory;
 
     protected $table = 'kegiatan';
-    protected $fillable = ['nama', 'skala', 'dana', 'tgl_pelaksanaan'];
+    protected $fillable = ['nama', 'skala', 'dana', 'tgl_pelaksanaan', 'kategori', 'ukm_id'];
     public function ukm()
     {
         return $this->belongsTo(Ukm::class);

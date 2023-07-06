@@ -9,6 +9,7 @@ use Faker\Factory as Faker;
 use App\Models\Ukm;
 use App\Models\Dana;
 use App\Models\Kegiatan;
+use App\Models\Asset;
 
 
 class DanaSeeder extends Seeder
@@ -22,6 +23,7 @@ class DanaSeeder extends Seeder
     {
         $ukmPhotography = Ukm::where('nama', 'UKM Fotografi')->first();
         $ukmProgramming = Ukm::where('nama', 'Programming Study Club')->first();
+        
 
         $kegiatanPhotographyWorkshop = Kegiatan::where('nama', 'Photography Workshop')->first();
         $kegiatanPhotographyCompetition = Kegiatan::where('nama', 'Photography Competition')->first();
@@ -29,8 +31,28 @@ class DanaSeeder extends Seeder
         $kegiatanWebDevCompetition = Kegiatan::where('nama', 'Web Development Competition')->first();
         $kegiatanWebDevWorkshop = Kegiatan::where('nama', 'Web Development Workshop')->first();
         $kegiatanProgrammingHackathon = Kegiatan::where('nama', 'Programming Hackathon')->first();
+        $asetRingLight = Asset::where('nama', 'Ring Light')->first();
+        $asetLaptopAsusROG = Asset::where('nama', 'Laptop ASUS ROG')->first();
 
         $data = [
+            [
+                'nama' => 'Dana Ring Light',
+                'deskripsi' => 'Funds for the Ring Light',
+                'dana' => 50000,
+                'waktu_transaksi' => '2023-02-10',
+                'tipe_transaksi' => 'Pengeluaran',
+                'aset_id' => $asetRingLight->id,
+                'ukm_id' => $ukmPhotography->id,
+            ],
+            [
+                'nama' => 'Dana Laptop',
+                'deskripsi' => 'Funds for the laptop ASUS ROG',
+                'dana' => 50000,
+                'waktu_transaksi' => '2023-05-10',
+                'tipe_transaksi' => 'Pengeluaran',
+                'aset_id' => $asetLaptopAsusROG->id,
+                'ukm_id' => $ukmPhotography->id,
+            ],
             [
                 'nama' => 'Dana Workshop',
                 'deskripsi' => 'Funds for the Photography Workshop',
