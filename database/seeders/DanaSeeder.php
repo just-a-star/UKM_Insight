@@ -23,14 +23,21 @@ class DanaSeeder extends Seeder
     {
         $ukmPhotography = Ukm::where('nama', 'UKM Fotografi')->first();
         $ukmProgramming = Ukm::where('nama', 'Programming Study Club')->first();
-        
+        $ukmBasket = Ukm::where('nama', 'UKM Basket')->first();
+        $ukmobola = Ukm::where('nama', 'UKM Sepak Bola')->first();
 
         $kegiatanPhotographyWorkshop = Kegiatan::where('nama', 'Photography Workshop')->first();
-        $kegiatanPhotographyCompetition = Kegiatan::where('nama', 'Photography Competition')->first();
+        $kegiatanPhotographyCompetition23 = Kegiatan::where('nama', 'Photography Competition 2023')->first();
         $kegiatanPhotographyExhibition = Kegiatan::where('nama', 'Photography Exhibition')->first();
         $kegiatanWebDevCompetition = Kegiatan::where('nama', 'Web Development Competition')->first();
         $kegiatanWebDevWorkshop = Kegiatan::where('nama', 'Web Development Workshop')->first();
-        $kegiatanProgrammingHackathon = Kegiatan::where('nama', 'Programming Hackathon')->first();
+        $kegiatanProgrammingHackathon23 = Kegiatan::where('nama', 'Programming Hackathon 2023')->first();
+        $kegiatanBasketCompetition23 = Kegiatan::where('nama', 'Basket Competition 2023')->first();
+        $kegiatanBasketWorkshop = Kegiatan::where('nama', 'Basket Workshop')->first();
+        $kegiatanBasketExhibition = Kegiatan::where('nama', 'Basket Exhibition')->first();
+        $kegiatanbolafmth = Kegiatan::where('nama', 'Bola Pertandingan Persahabatan')->first();
+
+
         $asetRingLight = Asset::where('nama', 'Ring Light')->first();
         $asetLaptopAsusROG = Asset::where('nama', 'Laptop ASUS ROG')->first();
 
@@ -38,7 +45,7 @@ class DanaSeeder extends Seeder
             [
                 'nama' => 'Dana Ring Light',
                 'deskripsi' => 'Funds for the Ring Light',
-                'dana' => 50000,
+                'dana' => 60000,
                 'waktu_transaksi' => '2023-02-10',
                 'tipe_transaksi' => 'Pengeluaran',
                 'aset_id' => $asetRingLight->id,
@@ -54,8 +61,8 @@ class DanaSeeder extends Seeder
                 'ukm_id' => $ukmPhotography->id,
             ],
             [
-                'nama' => 'Dana Workshop',
-                'deskripsi' => 'Funds for the Photography Workshop',
+                'nama' => 'Dana Photography Workshop',
+                'deskripsi' => 'Dana untuk Photography Workshop',
                 'dana' => 1000000,
                 'waktu_transaksi' => '2023-02-10',
                 'tipe_transaksi' => 'Pengeluaran',
@@ -63,17 +70,17 @@ class DanaSeeder extends Seeder
                 'ukm_id' => $ukmPhotography->id,
             ],
             [
-                'nama' => 'Dana Competition',
+                'nama' => 'Dana Photography Competition 2023',
                 'deskripsi' => 'Funds for the Photography Competition',
                 'dana' => 2000000,
                 'waktu_transaksi' => '2023-03-05',
                 'tipe_transaksi' => 'Pengeluaran',
-                'kegiatan_id' => $kegiatanPhotographyCompetition->id,
+                'kegiatan_id' => $kegiatanPhotographyCompetition23->id,
                 'ukm_id' => $ukmPhotography->id,
             ],
             [
-                'nama' => 'Dana Exhibition',
-                'deskripsi' => 'Funds for the Photography Exhibition',
+                'nama' => 'Dana Photography Exhibition',
+                'deskripsi' => 'Dana untuk Photography Exhibition',
                 'dana' => 1500000,
                 'waktu_transaksi' => '2023-04-15',
                 'tipe_transaksi' => 'Pengeluaran',
@@ -82,7 +89,7 @@ class DanaSeeder extends Seeder
             ],
             [
                 'nama' => 'Dana Web Dev Competition',
-                'deskripsi' => 'Funds for the Web Development Competition',
+                'deskripsi' => 'Dana untuk Web Development Competition',
                 'dana' => 2500000,
                 'waktu_transaksi' => '2023-03-05',
                 'tipe_transaksi' => 'Pengeluaran',
@@ -91,7 +98,7 @@ class DanaSeeder extends Seeder
             ],
             [
                 'nama' => 'Dana Web Dev Workshop',
-                'deskripsi' => 'Funds for the Web Development Workshop',
+                'deskripsi' => 'Dana untuk Web Development Workshop',
                 'dana' => 1200000,
                 'waktu_transaksi' => '2023-02-10',
                 'tipe_transaksi' => 'Pengeluaran',
@@ -99,13 +106,49 @@ class DanaSeeder extends Seeder
                 'ukm_id' => $ukmProgramming->id,
             ],
             [
-                'nama' => 'Dana Hackathon',
-                'deskripsi' => 'Funds for the Programming Hackathon',
+                'nama' => 'Dana Hackathon 2023',
+                'deskripsi' => 'Dana untuk Programming Hackathon',
                 'dana' => 1800000,
                 'waktu_transaksi' => '2023-04-15',
                 'tipe_transaksi' => 'Pengeluaran',
-                'kegiatan_id' => $kegiatanProgrammingHackathon->id,
+                'kegiatan_id' => $kegiatanProgrammingHackathon23->id,
                 'ukm_id' => $ukmProgramming->id,
+            ],
+            [
+                'nama' => 'Dana Lomba Basket 2023',
+                'deskripsi' => 'Dana pengeluaran lomba basket skala nasional',
+                'dana' => 3000000,
+                'waktu_transaksi' => '2022-03-06',
+                'tipe_transaksi' => 'Pengeluaran',
+                'kegiatan_id' => $kegiatanBasketCompetition23->id,
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Dana Basket Workshop',
+                'deskripsi' => 'Dana pengeluaran Workshop basket',
+                'dana' => 2000000,
+                'waktu_transaksi' => '2022-07-04',
+                'tipe_transaksi' => 'Pengeluaran',
+                'kegiatan_id' => $kegiatanBasketWorkshop->id,
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Dana Pameran Basket',
+                'deskripsi' => 'Dana pengeluaran untuk Pameran basket',
+                'dana' => 1800000,
+                'waktu_transaksi' => '2022-03-06',
+                'tipe_transaksi' => 'Pengeluaran',
+                'kegiatan_id' => $kegiatanBasketExhibition->id,
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Dana Pertandingan Persahabatan',
+                'deskripsi' => 'Dana pertandingan persahabatan antar ukam',
+                'dana' => 1800000,
+                'waktu_transaksi' => '2022-03-06',
+                'tipe_transaksi' => 'Pengeluaran',
+                'kegiatan_id' => $kegiatanbolafmth->id,
+                'ukm_id' => $ukmobola->id,
             ],
             // Add more data as needed
         ];
@@ -113,8 +156,5 @@ class DanaSeeder extends Seeder
         foreach ($data as $item) {
             Dana::create($item);
         }
-    
-        
-
     }
 }
