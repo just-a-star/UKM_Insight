@@ -63,7 +63,7 @@ class KegiatanSeeder extends Seeder
                 'nama' => 'Programming Hackathon',
                 'skala' => 'Nasional',
                 'kategori' => 'Kompetisi',
-                'tgl_pelaksanaan' => '2023-04-20',
+                'tgl_pelaksanaan' => '2023-07-05',
                 'ukm_id' => $ukmProgramming->id,
             ],
             [
@@ -77,14 +77,15 @@ class KegiatanSeeder extends Seeder
                 'nama' => 'Basket Workshop',
                 'skala' => 'Lokal',
                 'kategori' => 'Workshop',
-                'tgl_pelaksanaan' => '2022-02-15',
+                'tgl_pelaksanaan' => '2023-07-06',
                 'ukm_id' => $ukmBasket->id,
             ],
             [
                 'nama' => 'Basket Exhibition',
                 'skala' => 'Lokal',
                 'kategori' => 'Pameran',
-                'tgl_pelaksanaan' => '2022-04-20',
+                
+                'tgl_pelaksanaan' => now(),
                 'ukm_id' => $ukmBasket->id,
             ],
             // Add more data as needed

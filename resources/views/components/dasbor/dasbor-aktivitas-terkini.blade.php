@@ -1,3 +1,15 @@
+{{-- @php
+
+use App\Models\Kegiatan;
+use Carbon\Carbon;
+
+$today = Carbon::today();
+$kegiatans = Kegiatan::with('partisipan')
+    ->whereDate('tgl_pelaksanaan', $today)
+    ->get();
+
+@endphp
+
 <div class="bg-white border rounded-sm shadow-lg col-span-full xl:col-span-6 dark:bg-slate-800 border-slate-200 dark:border-slate-700">
     <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
         <h2 class="font-semibold text-slate-800 dark:text-slate-100">Recent Kegiatan</h2>
@@ -99,4 +111,4 @@
         </div>
 
     </div>
-</div>
+</div> --}}

@@ -14,6 +14,10 @@
         <x-dasbor.dasbor-ukm-aktif />
 
         <x-dasbor.dasbor-skala-kegiatan />
+
+        <x-dasbor.dasbor-aktivitas-terkini />
+
+        <x-dasbor.dasbor-recent-activity />
     </div>
 
 </x-app-layout>
