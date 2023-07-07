@@ -21,6 +21,8 @@ class KegiatanSeeder extends Seeder
         $ukmPhotography = Ukm::find(1);
         $ukmProgramming = Ukm::find(2);
         $ukmBasket = Ukm::find(3);
+        $ukmBola = Ukm::find(4);
+
 
         $data = [
             [
@@ -31,11 +33,27 @@ class KegiatanSeeder extends Seeder
                 'ukm_id' => $ukmPhotography->id,
             ],
             [
-                'nama' => 'Photography Competition',
+                'nama' => 'Photography Competition 2023',
                 'skala' => 'Nasional',
                 'kategori' => 'Kompetisi',
-                
+
                 'tgl_pelaksanaan' => '2023-03-10',
+                'ukm_id' => $ukmPhotography->id,
+            ],
+            [
+                'nama' => 'Photography Competition 2022',
+                'skala' => 'Nasional',
+                'kategori' => 'Kompetisi',
+
+                'tgl_pelaksanaan' => '2022-03-10',
+                'ukm_id' => $ukmPhotography->id,
+            ],
+            [
+                'nama' => 'Photography Competition 2021',
+                'skala' => 'Nasional',
+                'kategori' => 'Kompetisi',
+
+                'tgl_pelaksanaan' => '2021-03-10',
                 'ukm_id' => $ukmPhotography->id,
             ],
             [
@@ -60,17 +78,45 @@ class KegiatanSeeder extends Seeder
                 'ukm_id' => $ukmProgramming->id,
             ],
             [
-                'nama' => 'Programming Hackathon',
+                'nama' => 'Programming Hackathon 2023',
                 'skala' => 'Nasional',
                 'kategori' => 'Kompetisi',
                 'tgl_pelaksanaan' => '2023-07-05',
                 'ukm_id' => $ukmProgramming->id,
             ],
             [
-                'nama' => 'Basket Competition',
+                'nama' => 'Programming Hackathon 2022',
+                'skala' => 'Nasional',
+                'kategori' => 'Kompetisi',
+                'tgl_pelaksanaan' => '2022-07-05',
+                'ukm_id' => $ukmProgramming->id,
+            ],
+            [
+                'nama' => 'Programming Hackathon 2021',
+                'skala' => 'Nasional',
+                'kategori' => 'Kompetisi',
+                'tgl_pelaksanaan' => '2021-07-05',
+                'ukm_id' => $ukmProgramming->id,
+            ],
+            [
+                'nama' => 'Basket Competition 2022',
                 'skala' => 'Nasional',
                 'kategori' => 'Kompetisi',
                 'tgl_pelaksanaan' => '2022-03-10',
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Basket Competition 2023',
+                'skala' => 'Nasional',
+                'kategori' => 'Kompetisi',
+                'tgl_pelaksanaan' => '2022-03-10',
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Basket Competition 2021',
+                'skala' => 'Nasional',
+                'kategori' => 'Kompetisi',
+                'tgl_pelaksanaan' => '2021-03-10',
                 'ukm_id' => $ukmBasket->id,
             ],
             [
@@ -84,13 +130,21 @@ class KegiatanSeeder extends Seeder
                 'nama' => 'Basket Exhibition',
                 'skala' => 'Lokal',
                 'kategori' => 'Pameran',
-                
+
                 'tgl_pelaksanaan' => now(),
                 'ukm_id' => $ukmBasket->id,
             ],
+            [
+                'nama' => 'Bola Pertandingan Persahabatan',
+                'skala' => 'Lokal',
+                'kategori' => 'Kompetisi',
+
+                'tgl_pelaksanaan' => now(),
+                'ukm_id' => $ukmBola->id,
+            ],
             // Add more data as needed
         ];
-        
+
         foreach ($data as $item) {
             Kegiatan::create($item);
         }

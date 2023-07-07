@@ -33,6 +33,10 @@ class UkmTableSeeder extends Seeder
                 'nama' => 'UKM Basket',
                 'deskripsi' => 'Sebuah UKM yang bergerak di bidang basket',
             ],
+            [
+                'nama' => 'UKM Sepak Bola',
+                'deskripsi' => 'Sebuah UKM yang bergerak di bidang sepak bola',
+            ],
             
         ];
         foreach ($data as $item) {
