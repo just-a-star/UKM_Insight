@@ -102,7 +102,7 @@ return new class extends Migration {
 
         Schema::create('partisipan_kegiatan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('anggota_id');
+            $table->unsignedBigInteger('anggota_id')->nullable();
             $table->unsignedBigInteger('kegiatan_id');
             $table->string('role');
             $table->timestamps();
