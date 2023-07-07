@@ -18,6 +18,9 @@ class AnggotaSeeder extends Seeder
     {
         $ukmPhotography = Ukm::find(1);
         $ukmProgramming = Ukm::find(2);
+        $ukmBasket      = Ukm::find(3);
+        $ukmBola        = Ukm::find(4);
+
 
         $data = [
             [
@@ -118,6 +121,42 @@ class AnggotaSeeder extends Seeder
                 'no_telepon' => '081234567803',
                 'email' => 'yunisusanti@example.com',
                 'ukm_id' => $ukmProgramming->id,
+            ],
+            [
+                'nama' => 'John Doe',
+                'posisi' => 'Leader',
+                'masa_jabatan' => '2023-2024',
+                'angkatan' => 2021,
+                'no_telepon' => '081234567761',
+                'email' => 'johmdoe@example.com',
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Ahmad Rahman',
+                'posisi' => 'Member',
+                'masa_jabatan' => '2023-2024',
+                'angkatan' => 2022,
+                'no_telepon' => '08123434161',
+                'email' => 'Ahmadrahman@example.com',
+                'ukm_id' => $ukmBasket->id,
+            ],
+            [
+                'nama' => 'Muhammad Speed',
+                'posisi' => 'Leader',
+                'masa_jabatan' => '2022-2024',
+                'angkatan' => 2021,
+                'no_telepon' => '085551111333',
+                'email' => 'Ssiiiuuu@example.com',
+                'ukm_id' => $ukmBola->id,
+            ],
+            [
+                'nama' => 'Hanry lee',
+                'posisi' => 'Member',
+                'masa_jabatan' => '2023-2024',
+                'angkatan' => 2022,
+                'no_telepon' => '08882334109',
+                'email' => 'Hanry Lee@example.com',
+                'ukm_id' => $ukmBola->id,
             ],
             // Add more data as needed
         ];
