@@ -51,6 +51,7 @@ class PartisipanKegiatanSeeder extends Seeder
                 'anggota_id' => 5,
             ],
             [
+                'anggota_id' => 1,
                 'kegiatan_id' => 6,
                 'role' => 'penanggung_jawab',
             ],

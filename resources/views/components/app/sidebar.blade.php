@@ -258,14 +258,14 @@
                                 :class="open ? '!block' : 'hidden'">
                                 <li class="mb-1 last:mb-0">
                                     <a class="@if (Route::is('ukm.dasbor')) {{ '!text-indigo-500' }} @endif block truncate text-slate-400 transition duration-150 hover:text-slate-200"
-                                        href="{{ route('ukm.dasbor') }}">
+                                        href="{{ route('ukm-dasbor') }}">
                                         <span
                                             class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">Dasbor</span>
                                     </a>
                                 </li>
                                 <li class="mb-1 last:mb-0">
                                     <a class="@if (Route::is('ukm.list')) {{ '!text-indigo-500' }} @endif block truncate text-slate-400 transition duration-150 hover:text-slate-200"
-                                        href="{{ route('ukm.list') }}">
+                                        href="{{ route('ukm-list') }}">
                                         <span
                                             class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">List</span>
                                     </a>

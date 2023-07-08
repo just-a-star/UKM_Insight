@@ -12,11 +12,11 @@ class Keuangan extends Model
     protected $fillable = ['ukm_id', 'aset_id', 'dana_id', 'nama','deskripsi'];
     public function kegiatan()
     {
-        return $this->belongsTo(Kegiatan::class);
+        return $this->belongsTo(Kegiatan::class,'kegiatan_id');
     }
     public function dana()
     {
-        return $this->hasMany(Dana::class);
+        return $this->hasMany(Dana::class, 'dana_id');
     }
 
 }

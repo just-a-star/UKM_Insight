@@ -18,10 +18,22 @@ class Kegiatan extends Model
 
     public function partisipanKegiatan()
     {
-        return $this->hasMany(PartisipanKegiatan::class);
+        return $this->hasMany(PartisipanKegiatan::class, 'kegiatan_id')->where('role', 'penanggung_jawab');
     }
 
-    public function dana(){
-        return $this->hasMany(Dana::class);
+    public function penanggungJawab()
+    {
+        return $this->partisipanKegiatan()
+            ->where('role', 'penanggung_jawab')
+            ->with('anggota');
+    }
+
+    public function dana()
+    {
+        return $this->hasMany(Dana::class, 'kegiatan_id');
+    }
+    public function feedbackKegiatan()
+    {
+        return $this->hasMany(FeedbackKegiatan::class, 'kegiatan_id');
     }
 }

@@ -15,12 +15,18 @@ class PartisipanKegiatan extends Model
 
     public function kegiatan()
     {
-        return $this->belongsTo(Kegiatan::class, 'id_kegiatan');
+        return $this->belongsTo(Kegiatan::class, 'anggota_id');
     }
+
+    public function partisipanKegiatan()
+{
+    return $this->hasMany(PartisipanKegiatan::class)->where('role', 'penanggung_jawab');
+}
+
 
     public function anggota()
     {
-        return $this->belongsTo(Anggota::class, 'id_anggota');
+        return $this->belongsTo(Anggota::class, 'anggota_id');
     }
     
 }

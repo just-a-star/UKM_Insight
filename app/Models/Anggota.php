@@ -20,7 +20,7 @@ class Anggota extends Model
     }
     public function partisipanKegiatan()
     {
-        return $this->hasMany(PartisipanKegiatan::class);
+        return $this->hasMany(PartisipanKegiatan::class, 'id_anggota');
     }
 
 }

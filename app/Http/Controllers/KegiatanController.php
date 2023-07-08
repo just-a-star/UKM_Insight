@@ -36,4 +36,20 @@ class KegiatanController extends Controller
 }
 
 
+public function getPartisipanKegiatanDistribution()
+{
+    $partisipanDistribution = DB::select("
+        SELECT YEAR(tgl_pelaksanaan) AS year,
+            SUM(CASE WHEN partisipan_kegiatan.role = 'penanggung_jawab' THEN 1 ELSE 0 END) AS penanggung_jawab,
+            SUM(CASE WHEN partisipan_kegiatan.role = 'anggota' THEN 1 ELSE 0 END) AS anggota
+        FROM kegiatan
+        INNER JOIN partisipan_kegiatan ON kegiatan.id = partisipan_kegiatan.kegiatan_id
+        GROUP BY YEAR(tgl_pelaksanaan)
+        ORDER BY YEAR(tgl_pelaksanaan) ASC
+    ");
+    // dd($partisipanDistribution);
+    return response()->json($partisipanDistribution);
+    
+}
+
 }

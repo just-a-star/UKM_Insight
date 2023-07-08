@@ -16,7 +16,7 @@ class Asset extends Model
     }
     public function dana()
     {
-        return $this->hasMany(Dana::class);
+        return $this->hasMany(Dana::class, 'aset_id');
     }
 
 }

@@ -15,25 +15,25 @@ class Ukm extends Model
 
     public function anggota()
     {
-        return $this->hasMany(Anggota::class);
+        return $this->hasMany(Anggota::class, 'ukm_id');
     }
     public function asset()
     {
-        return $this->hasMany(Asset::class);
+        return $this->hasMany(Asset::class, 'ukm_id');
     }    
 
     public function kegiatan()
     {
-        return $this->hasMany(Kegiatan::class);
+        return $this->hasMany(Kegiatan::class, 'ukm_id');
     }
 
     public function partisipanKegiatan()
     {
-        return $this->hasMany(PartisipanKegiatan::class);
+        return $this->hasMany(PartisipanKegiatan::class, 'ukm_id');
     }
 
     public function dana(){
-        return $this->hasMany(Dana::class);
+        return $this->hasMany(Dana::class, 'dana_id');
     }
 
     public function getKetuaAttribute()

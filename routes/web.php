@@ -40,9 +40,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/total-anggota-per-angkatan', [AnggotaController::class, 'getTotalAnggotaPerAngkatan'])->name('total_anggota_per_angkatan');; 
     Route::get('/popular-activities', [DasborController::class, 'getPopularActivities'])->name('popular_activities');
     Route::get('/skala-kegiatan-distribution', [KegiatanController::class, 'getSkalaKegiatanDistribution'])->name('skala_kegiatan_distribution');
-    Route::get('/ukm-list', [UkmController::class, 'list'])->name('ukm.list');
-    Route::get('/ukm/{id?}', [UkmController::class, 'dasbor'])->name('ukm.dasbor');
+    Route::get('/ukm-list', [UkmController::class, 'list'])->name('ukm-list');
+    Route::get('/ukm-dasbor/{id?}', [UkmController::class, 'dasbor'])->name('ukm-dasbor');
     Route::get('/ukm-list-json', [UkmController::class, 'getUkmListJson'])->name('ukm-list-json');
+    Route::get('/ukm-get-kegiatan-periode-ini/{id}', [UkmController::class, 'getKegiatanPeriodeIni'])->name('ukm-get-kegiatan-periode-ini');
+    Route::get('/ukm-get-kegiatan-periode-ini-json/{id}', [UkmController::class, 'getKegiatanPeriodeIniJson'])->name('ukm-get-kegiatan-periode-ini-json');
+
+    
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota');
     Route::get('/assets', [AssetsController::class, 'index'])->name('assets');
