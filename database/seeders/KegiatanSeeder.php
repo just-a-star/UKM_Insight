@@ -49,6 +49,14 @@ class KegiatanSeeder extends Seeder
                 'ukm_id' => $ukmPhotography->id,
             ],
             [
+                'nama' => 'Lomba Fotografi Kampus Tema Keseharian mahasiswa',
+                'skala' => 'Lokal',
+                'kategori' => 'Kompetisi',
+
+                'tgl_pelaksanaan' => '2021-06-11',
+                'ukm_id' => $ukmPhotography->id,
+            ],
+            [
                 'nama' => 'Photography Competition 2021',
                 'skala' => 'Nasional',
                 'kategori' => 'Kompetisi',
@@ -64,10 +72,24 @@ class KegiatanSeeder extends Seeder
                 'ukm_id' => $ukmPhotography->id,
             ],
             [
+                'nama' => 'Pameran Fotografi Lokal',
+                'skala' => 'Lokal',
+                'kategori' => 'Pameran',
+                'tgl_pelaksanaan' => '2021-08-09',
+                'ukm_id' => $ukmPhotography->id,
+            ],
+            [
                 'nama' => 'Web Development Competition',
                 'skala' => 'Nasional',
                 'kategori' => 'Kompetisi',
                 'tgl_pelaksanaan' => '2023-03-10',
+                'ukm_id' => $ukmProgramming->id,
+            ],
+            [
+                'nama' => 'Projek Kolaboratif Aplikasi untuk Universitas',
+                'skala' => 'Lokal',
+                'kategori' => 'Kompetisi',
+                'tgl_pelaksanaan' => '2021-08-24',
                 'ukm_id' => $ukmProgramming->id,
             ],
             [
@@ -135,7 +157,7 @@ class KegiatanSeeder extends Seeder
                 'ukm_id' => $ukmBasket->id,
             ],
             [
-                'nama' => 'Bola Pertandingan Persahabatan',
+                'nama' => 'Pertandingan Bola Persahabatan',
                 'skala' => 'Lokal',
                 'kategori' => 'Kompetisi',
 

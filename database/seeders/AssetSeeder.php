@@ -18,7 +18,7 @@ class AssetSeeder extends Seeder
      */
     public function run()
     {
-        $ukms = Ukm::whereIn('nama', ['UKM Fotografi', 'Programming Study Club'])->get();
+        $ukms = Ukm::whereIn('nama', ['UKM Fotografi', 'Programming Study Club','UKM Basket','UKM Sepak Bola'])->get();
 
         $data = [
             [
@@ -45,6 +45,22 @@ class AssetSeeder extends Seeder
                 
                 
             ],
+            [
+                'nama' => 'Bola Basket',
+                'deskripsi' => 'Bola basket untuk pelatihan dan pertandingan',
+                'jumlah' => 5,
+                'tgl_pengadaan' => '2022-04-30',
+                
+                
+            ],
+            [
+                'nama' => 'Bola ',
+                'deskripsi' => 'Bola untuk pelatihan dan pertandingan',
+                'jumlah' => 5,
+                'tgl_pengadaan' => '2022-04-30',
+                
+                
+            ],
             
         ];
 
@@ -59,6 +75,14 @@ class AssetSeeder extends Seeder
             } elseif ($ukmName === 'Programming Study Club') {
                 $assets = [
                     $data[2], // Laptop ASUS ROG
+                ];
+            }elseif ($ukmName === 'UKM Basket') {
+                $assets = [
+                    $data[3], // Bola Basket
+                ];
+            }elseif ($ukmName === 'UKM Sepak Bola') {
+                $assets = [
+                    $data[4], // Bola 
                 ];
             }
 
