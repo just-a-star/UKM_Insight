@@ -257,19 +257,17 @@
                             <ul class="@if (!in_array(Request::segment(1), ['community'])) {{ 'hidden' }} @endif mt-1 pl-9"
                                 :class="open ? '!block' : 'hidden'">
                                 <li class="mb-1 last:mb-0">
-                                    <a class="@if (Route::is('users-tabs')) {{ '!text-indigo-500' }} @endif block truncate text-slate-400 transition duration-150 hover:text-slate-200"
-                                        href="#0">
+                                    <a class="@if (Route::is('ukm.dasbor')) {{ '!text-indigo-500' }} @endif block truncate text-slate-400 transition duration-150 hover:text-slate-200"
+                                        href="{{ route('ukm.dasbor') }}">
                                         <span
-                                            class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">Users
-                                            - Tabs</span>
+                                            class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">Dasbor</span>
                                     </a>
                                 </li>
                                 <li class="mb-1 last:mb-0">
-                                    <a class="@if (Route::is('users-tiles')) {{ '!text-indigo-500' }} @endif block truncate text-slate-400 transition duration-150 hover:text-slate-200"
-                                        href="#0">
+                                    <a class="@if (Route::is('ukm.list')) {{ '!text-indigo-500' }} @endif block truncate text-slate-400 transition duration-150 hover:text-slate-200"
+                                        href="{{ route('ukm.list') }}">
                                         <span
-                                            class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">Users
-                                            - Tiles</span>
+                                            class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">List</span>
                                     </a>
                                 </li>
                                 <li class="mb-1 last:mb-0">

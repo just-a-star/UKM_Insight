@@ -20,9 +20,25 @@ class Ukm extends Model
     public function asset()
     {
         return $this->hasMany(Asset::class);
-    }    public function keuangan()
+    }    
+
+    public function kegiatan()
     {
-        return $this->hasMany(Keuangan::class);
+        return $this->hasMany(Kegiatan::class);
+    }
+
+    public function partisipanKegiatan()
+    {
+        return $this->hasMany(PartisipanKegiatan::class);
+    }
+
+    public function dana(){
+        return $this->hasMany(Dana::class);
+    }
+
+    public function getKetuaAttribute()
+    {
+        return $this->anggota()->where('posisi', 'Leader')->first();
     }
 
 }
