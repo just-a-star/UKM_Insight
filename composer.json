@@ -12,7 +12,8 @@
         "laravel/jetstream": "^2.9",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "livewire/livewire": "^2.5"
+        "livewire/livewire": "^2.5",
+        "openai-php/client": "^0.6.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
@@ -58,7 +59,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

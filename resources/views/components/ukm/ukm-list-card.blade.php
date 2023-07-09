@@ -26,7 +26,7 @@
                         <th class="p-2 whitespace-nowrap">
                             <div class="font-semibold text-center">Pengeluaran Periode Ini</div>
                         </th>
-                        <th class="p-2 whitespace-nowrap">
+                        <th class="p-2 whitespace-wrap">
                             <div class="font-semibold text-center text-ellipsis">Kegiatan yang Dilaksanakan Periode Ini
                             </div>
                         </th>

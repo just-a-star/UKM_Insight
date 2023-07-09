@@ -30,7 +30,7 @@
                 </button> --}}
 
                 <!-- Anggota button -->
-                <a href="{{ url('ukm-anggota/' . $ukmList[0]['id']) }}"
+                <a href="{{ url('ukm-anggota/' . $assetList[0]['id']) }}"
                     class="text-white bg-indigo-500 btn hover:bg-indigo-600">
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
@@ -38,23 +38,31 @@
                     <span class="hidden ml-2 xs:block">Anggota UKM</span>
                 </a>
 
-                <!-- Aset button -->
-                <a href="{{ url('ukm-aset/' . $ukmList[0]['id']) }}"
+                {{-- <!-- Aset button -->
+                <a href="{{ url('ukm-aset/' . $assetList[0]['id']) }}"
                     class="text-white bg-indigo-500 btn hover:bg-indigo-600">
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
                     </svg>
                     <span class="hidden ml-2 xs:block">Aset UKM</span>
-                </a>
+                </a> --}}
 
                 <!-- Dasbor button -->
-                <a href="{{ url('ukm-dasbor/' . $ukmList[0]['id']) }}"
+                <a href="{{ url('ukm-dasbor/' . $assetList[0]['id']) }}"
                     class="text-white bg-indigo-500 btn hover:bg-indigo-600">
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path <path
                             d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
                     </svg>
                     <span class="hidden ml-2 xs:block">Dasbor UKM</span>
+                </a>
+                <a href="{{ url('ukm-dana/' . $assetList[0]['id']) }}"
+                    class="text-white bg-indigo-500 btn hover:bg-indigo-600">
+                    <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
+                        <path <path
+                            d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
+                    </svg>
+                    <span class="hidden ml-2 xs:block">Keuangan UKM</span>
                 </a>
 
 
@@ -68,12 +76,14 @@
 
             <div class="col-span-12">
                 <div class="p-6 bg-white border rounded-sm shadow-lg border-slate-200">
-                    <h2 class="text-lg font-semibold text-slate-800">Dasbor UKM</h2>
-                    <p>This is a simple dashboard page for UKM.</p>
+                    <h2 class="text-lg font-semibold text-slate-800">Asset</h2>
+                    <p>Berikut adalah aset yang dimiliki oleh UKM ini.</p>
                 </div>
             </div>
-            <x-ukm.ukm-detail-card :ukmList="$ukmList" />
-            <x-ukm.ukm-kegiatan-card :dataKegiatan="$dataKegiatan" />
+            <div class="col-span-12">
+                <x-ukm.ukm-aset-card :assetList="$assetList" />
+            </div>
+
 
         </div>
 

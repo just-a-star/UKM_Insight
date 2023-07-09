@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AnggotaController;
-use App\Http\Controllers\AssetsController;
+use App\Http\Controllers\UkmAssetController;
 use App\Http\Controllers\DasborController;
 use App\Http\Controllers\KeuanganController;
-
+use App\Http\Controllers\UkmDanaController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\UkmController;
 /*
@@ -46,10 +46,27 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/ukm-get-kegiatan-periode-ini/{id}', [UkmController::class, 'getKegiatanPeriodeIni'])->name('ukm-get-kegiatan-periode-ini');
     Route::get('/ukm-get-kegiatan-periode-ini-json/{id}', [UkmController::class, 'getKegiatanPeriodeIniJson'])->name('ukm-get-kegiatan-periode-ini-json');
 
+    // Anggota
+    Route::get('/ukm-anggota/{id}', [UkmController::class, 'anggotaPage'])->name('ukm-anggota');
+    Route::get('/ukm-get-ukm-anggota-json/{id}', [UkmController::class, 'getUkmAnggotaJson'])->name('ukm-get-ukm-anggota-json');
+    // Route::get('/ukm-get-ukm-anggota-aktif/{id}', [UkmController::class, 'getUkmAnggotaAktif'])->name('ukm-get-ukm-anggota-aktif');
+
+    // Kegiatan
+    Route::get('/ukm-get-ukm-detail/{id}', [UkmController::class, 'getUkmDetail'])->name('ukm-get-ukm-detail');
+    Route::get('/ukm-get-ukm-detail-json/{id}', [UkmController::class, 'getUkmDetailJson'])->name('ukm-get-ukm-detail-json');
+
+    // Asset
+    // Route::get()
+    Route::get('/ukm-aset/{id}', [UkmAssetController::class, 'assetPage'])->name('ukm-aset');
+    Route::get('/ukm-get-ukm-aset-json/{id}', [UkmAssetController::class, 'getUkmAssetJson'])->name('ukm-get-ukm-aset-json');
+    
+    // Dana
+    Route::get('/ukm-dana/{id}', [UkmDanaController::class, 'index'])->name('ukm-dana');
+    Route::get('/ukm-get-ukm-dana-json/{id}', [UkmDanaController::class, 'getUkmDanaJson'])->name('ukm-get-ukm-dana-json');
     
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota');
-    Route::get('/assets', [AssetsController::class, 'index'])->name('assets');
+
     Route::get('/kegiatan', [KegiatanController::class, 'kegiatan'])->name('kegiatan');
     Route::get('/kegiatan/partisipan', [KegiatanController::class, 'partisipan'])->name('partisipan');
     Route::get('/keuangan', [KeuanganController::class, 'keuangan'])->name('keuangan');

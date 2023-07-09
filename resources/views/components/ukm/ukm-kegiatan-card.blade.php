@@ -29,6 +29,8 @@
                         <th class="p-2">
                             <div class="text-center font-semibold">Pemasukan</div>
                         </th>
+                        <th class="p-2">
+                            <div class="text-center font-semibold">Proposal</div>
                     </tr>
                 </thead>
                 <!-- Table body -->
@@ -70,6 +72,9 @@
                                 <div class="text-center">
                                     {{ $item['pendapatan'] > 0 ? $item['pendapatan'] : 'Tidak ada' }}</div>
                             </td>
+                            <td>
+                                <a href="https://drive.google.com/file/d/1Svh5nazz5RTY8IJcldFNJ6y1RrsGE9UU/view?usp=sharing"
+                                    class="bg-indigo-500 text-center text-white">Download</a>
                         </tr>
                     @endforeach
                 </tbody>

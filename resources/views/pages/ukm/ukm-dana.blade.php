@@ -30,7 +30,7 @@
                 </button> --}}
 
                 <!-- Anggota button -->
-                <a href="{{ url('ukm-anggota/' . $ukmList[0]['id']) }}"
+                <a href="{{ url('ukm-anggota/' . $danaList[0]['id']) }}"
                     class="text-white bg-indigo-500 btn hover:bg-indigo-600">
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
@@ -39,7 +39,7 @@
                 </a>
 
                 <!-- Aset button -->
-                <a href="{{ url('ukm-aset/' . $ukmList[0]['id']) }}"
+                <a href="{{ url('ukm-aset/' . $danaList[0]['id']) }}"
                     class="text-white bg-indigo-500 btn hover:bg-indigo-600">
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
@@ -48,7 +48,7 @@
                 </a>
 
                 <!-- Dasbor button -->
-                <a href="{{ url('ukm-dasbor/' . $ukmList[0]['id']) }}"
+                <a href="{{ url('ukm-dasbor/' . $danaList[0]['id']) }}"
                     class="text-white bg-indigo-500 btn hover:bg-indigo-600">
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path <path
@@ -69,11 +69,13 @@
             <div class="col-span-12">
                 <div class="p-6 bg-white border rounded-sm shadow-lg border-slate-200">
                     <h2 class="text-lg font-semibold text-slate-800">Dasbor UKM</h2>
-                    <p>This is a simple dashboard page for UKM.</p>
+                    <p>Berikut adalah riwayat keuangan UKM ini.</p>
                 </div>
             </div>
-            <x-ukm.ukm-detail-card :ukmList="$ukmList" />
-            <x-ukm.ukm-kegiatan-card :dataKegiatan="$dataKegiatan" />
+            <div class="col-span-12">
+                <x-ukm.ukm-dana-card :danaList="$danaList" />
+            </div>
+
 
         </div>
 

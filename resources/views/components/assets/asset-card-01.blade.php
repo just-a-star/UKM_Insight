@@ -1,12 +1,7 @@
-@php
-    use App\Models\Asset;
-    use App\Models\Ukm;
-    $random = Ukm::inRandomOrder()->first()->id;
-    $assets = Asset::with('ukm')->where('ukm_id', $random)->get();
-@endphp
+
 
 <div
-    class="col-span-full xl:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+    class="bg-white border rounded-sm shadow-lg col-span-full xl:col-span-6 dark:bg-slate-800 border-slate-200 dark:border-slate-700">
     <header class="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
         <h2 class="font-semibold text-slate-800 dark:text-slate-100">Asset</h2>
     </header>
@@ -14,7 +9,7 @@
 
         <!-- Table -->
         <div class="overflow-x-auto">
-            <table class="table-auto w-full">
+            <table class="w-full table-auto">
                 <!-- Table header -->
                 <thead
                     class="text-xs font-semibold uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50">

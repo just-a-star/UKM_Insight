@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use Illuminate\Http\Request;
 use App\Models\Ukm;
 use App\Models\Anggota;
@@ -21,7 +22,8 @@ class UkmController extends Controller
             return redirect()->route('ukm-list');
         }
         $dataKegiatan = $this->getKegiatanPeriodeIni($id);
-       return view('pages.ukm.ukm-dasbor', compact('id','dataKegiatan'));
+        $ukmList = $this->getUkmList($id);
+       return view('pages.ukm.ukm-dasbor', compact('id','dataKegiatan', 'ukmList'));
     }
 
     public function show($id)
@@ -63,9 +65,15 @@ public function getUkmListJson()
     return response()->json($ukmList);
 }
 
-public function getUkmList()
+public function getUkmList($id = null)
 {
-    $ukms = Ukm::select('id', 'nama', 'deskripsi')->get();
+    $query = Ukm::select('id', 'nama', 'deskripsi');
+    
+    if ($id) {
+        $query->where('id', $id);
+    }
+    
+    $ukms = $query->get();
 
     $ukmList = [];
     foreach ($ukms as $ukm) {
@@ -96,6 +104,7 @@ public function getUkmList()
     return $ukmList;
 }
 
+
 public function list()
 {
     $ukmList = $this->getUkmList();
@@ -103,42 +112,36 @@ public function list()
     return view('pages.ukm.ukm-list', compact('ukmList'));
 }
 
-// public function getUkmDetail($id)
-// {
-//     $ukm = Ukm::findOrFail($id);
+public function getUkmDetail($id)
+{
+    $ukm = Ukm::findOrFail($id);
 
-//     $ketua = Anggota::where('ukm_id', $ukm->id)
-//         ->where('posisi', 'Leader')
-//         ->value('nama');
+    $ketua = Anggota::where('ukm_id', $ukm->id)
+        ->where('posisi', 'Leader')
+        ->value('nama');
 
-//     $totalAnggota = Anggota::where('ukm_id', $ukm->id)->count();
+    $totalAnggota = Anggota::where('ukm_id', $ukm->id)->count();
 
-//     $totalPengeluaran = Dana::where('ukm_id', $ukm->id)
-//         ->whereBetween('waktu_transaksi', ['2023-01-01', '2024-12-31'])
-//         ->sum('dana');
+    $totalPengeluaran = Dana::where('ukm_id', $ukm->id)
+        ->whereBetween('waktu_transaksi', ['2023-01-01', '2024-12-31'])
+        ->sum('dana');
 
-//     $kegiatanPeriodeIni = Kegiatan::where('ukm_id', $ukm->id)
-//         ->whereBetween('tgl_pelaksanaan', ['2023-01-01', '2024-12-31'])
-//         ->count();
+    $kegiatanPeriodeIni = Kegiatan::where('ukm_id', $ukm->id)
+        ->whereBetween('tgl_pelaksanaan', ['2023-01-01', '2024-12-31'])
+        ->count();
 
-//     $ukmDetail = [
-//         'id' => $ukm->id,
-//         'name' => $ukm->nama,
-//         'deskripsi' => $ukm->deskripsi,
-//         'ketua' => $ketua,
-//         'total_anggota' => $totalAnggota,
-//         'pengeluaran_periode_ini' => $totalPengeluaran,
-//         'kegiatan_periode_ini' => $kegiatanPeriodeIni,
-//     ];
+    $ukmDetail = [
+        'id' => $ukm->id,
+        'name' => $ukm->nama,
+        'deskripsi' => $ukm->deskripsi,
+        'ketua' => $ketua,
+        'total_anggota' => $totalAnggota,
+        'pengeluaran_periode_ini' => $totalPengeluaran,
+        'kegiatan_periode_ini' => $kegiatanPeriodeIni,
+    ];
 
-//     return $ukmDetail;
-// }
-// use App\Models\Anggota;
-
-// use App\Models\Anggota;
-
-// use App\Models\PartisipanKegiatan;
-// use App\Models\Anggota;
+    return $ukmDetail;
+}
 
 public function getKegiatanPeriodeIniJson($id)
 {
@@ -226,12 +229,14 @@ public function getKegiatanPeriodeIni($id)
     return $data;
 }
 
-public function kegiatanPeriodeIni($id)
+public function dasborUKM($id)
 {
     $dataKegiatan = $this->getKegiatanPeriodeIni($id);
-    
-    return view('pages.ukm.ukm-dasbor', compact('dataKegiatan'));
+    $ukmList = $this->getUkmList();
+
+    return view('pages.ukm.ukm-dasbor', compact('dataKegiatan', 'ukmList'));
 }
+
 
 
 
@@ -273,24 +278,41 @@ private function convertRatingToNumeric($rating)
 
     return $ratingValues[$rating] ?? 0;
 }
+// Anggota
+public function getAnggotaList($id)
+{
+    $anggotaList = Anggota::where('ukm_id', $id)->get();
 
+    return $anggotaList;
+}
 
+public function getUkmAnggotaJson($id)
+{
+    $anggotaList = $this->getAnggotaList($id);
 
+    $data = [];
 
+    foreach ($anggotaList as $anggota) {
+        $data[] = [
+            'nama' => $anggota->nama,
+            'nim' => $anggota->nim,
+            'angkatan' => $anggota->angkatan,
+            'posisi' => $anggota->posisi,
+        ];
+    }
 
+    return response()->json($data);
+}
 
+public function anggotaPage($id)
+{
+    $anggotaList = $this->getAnggotaList($id);
+    
 
+    return view('pages.ukm.ukm-anggota', compact('anggotaList') );
+}
 
-
-
-
-
-
-
-
-
-
-
+// Asset UKM
 
 
 }
