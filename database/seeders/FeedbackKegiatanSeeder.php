@@ -11,8 +11,8 @@ class FeedbackKegiatanSeeder extends Seeder
 {
     public function run()
     {
-      // rating : Excellent, Good, Fair, Poor
-      // kegiatan totalnya ada 9
+        // rating : Excellent, Good, Fair, Poor
+        // kegiatan totalnya ada 9
         $feedback = [
             [
                 'kegiatan_id' => 1,
@@ -37,7 +37,7 @@ class FeedbackKegiatanSeeder extends Seeder
                 'komentar' => 'Kegiatannya sangat menarik dan saya bertemu teman baru',
                 'created_at' => now(),
                 'updated_at' => now(),
-                
+
             ],
             [
                 'kegiatan_id' => 3,
@@ -111,6 +111,162 @@ class FeedbackKegiatanSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'kegiatan_id' => 10,
+                'partisipan_kegiatan_id' => 5,
+                'rating' => 'Excellent',
+                'komentar' => 'Acara bagus dan menyenangkan',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 11,
+                'partisipan_kegiatan_id' => 1,
+                'rating' => 'Good',
+                'komentar' => 'Acara bagus dan menyenangkan',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 12,
+                'partisipan_kegiatan_id' => 2,
+                'rating' => 'Excellent',
+                'komentar' => 'Acara berjalan lancar',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 17,
+                'partisipan_kegiatan_id' => 10,
+                'rating' => 'Excellent',
+                'komentar' => 'Acara berjalan lancar',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 17,
+                'partisipan_kegiatan_id' => 7,
+                'rating' => 'Excellent',
+                'komentar' => 'Acara berjalan lancar',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 17,
+                'partisipan_kegiatan_id' => 4,
+                'rating' => 'Excellent',
+                'komentar' => 'Acara sesuai yang saya bayangkan',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 18,
+                'partisipan_kegiatan_id' => 7,
+                'rating' => 'Excellent',
+                'komentar' => 'Acara berjalan lancar',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 19,
+                'partisipan_kegiatan_id' => 4,
+                'rating' => 'Excellent',
+                'komentar' => 'Acara berjalan lancar',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 12,
+                'partisipan_kegiatan_id' => 3,
+                'rating' => 'Good',
+                'komentar' => 'Terima kasih atas pengalaman yang berharga!',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 5,
+                'partisipan_kegiatan_id' => 9,
+                'rating' => 'Fair',
+                'komentar' => 'Ada beberapa hal yang perlu ditingkatkan.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 8,
+                'partisipan_kegiatan_id' => 1,
+                'rating' => 'Excellent',
+                'komentar' => 'Sangat puas dengan pelaksanaan kegiatan.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 15,
+                'partisipan_kegiatan_id' => 6,
+                'rating' => 'Poor',
+                'komentar' => 'Kurang memuaskan, harap diperbaiki.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 3,
+                'partisipan_kegiatan_id' => 2,
+                'rating' => 'Good',
+                'komentar' => 'Acara menarik dan bermanfaat.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 10,
+                'partisipan_kegiatan_id' => 5,
+                'rating' => 'Excellent',
+                'komentar' => 'Sangat terkesan dengan kualitas kegiatan ini.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 7,
+                'partisipan_kegiatan_id' => 8,
+                'rating' => 'Good',
+                'komentar' => 'Berharap ada lebih banyak sesi interaktif.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 1,
+                'partisipan_kegiatan_id' => 10,
+                'rating' => 'Fair',
+                'komentar' => 'Perlu perbaikan dalam hal waktu pelaksanaan.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 9,
+                'partisipan_kegiatan_id' => 4,
+                'rating' => 'Excellent',
+                'komentar' => 'Peserta sangat terlibat dalam kegiatan ini.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 17,
+                'partisipan_kegiatan_id' => 1,
+                'rating' => 'Good',
+                'komentar' => 'Pembicara sangat menginspirasi.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kegiatan_id' => 6,
+                'partisipan_kegiatan_id' => 9,
+                'rating' => 'Poor',
+                'komentar' => 'Kegiatan tidak sesuai dengan harapan.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+
+
+            //17,18,19
             // [
             //     'kegiatan_id' => 3,
             //     'partisipan_kegiatan_id' => 8,

@@ -173,7 +173,7 @@ class AnggotaSeeder extends Seeder
                 'masa_jabatan' => '2023-2024',
                 'angkatan' => 2022,
                 'no_telepon' => '08882334109',
-                'email' => 'HanryLee@example.com',
+                'email' => 'hanrylee@example.com',
                 'ukm_id' => $ukmBola->id,
             ],
             [
