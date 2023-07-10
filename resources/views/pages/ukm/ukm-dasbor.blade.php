@@ -35,7 +35,7 @@
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
                     </svg>
-                    <span class="hidden ml-2 xs:block">Anggota UKM</span>
+                    <span class="hidden ml-2 xs:block">Anggota</span>
                 </a>
 
                 <!-- Aset button -->
@@ -44,17 +44,17 @@
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
                     </svg>
-                    <span class="hidden ml-2 xs:block">Aset UKM</span>
+                    <span class="hidden ml-2 xs:block">Aset</span>
                 </a>
 
                 <!-- Dasbor button -->
-                <a href="{{ url('ukm-dasbor/' . $ukmList[0]['id']) }}"
+                <a href="{{ url('ukm-dana/' . $ukmList[0]['id']) }}"
                     class="text-white bg-indigo-500 btn hover:bg-indigo-600">
                     <svg class="w-4 h-4 opacity-50 fill-current shrink-0" viewBox="0 0 16 16">
                         <path <path
                             d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
                     </svg>
-                    <span class="hidden ml-2 xs:block">Dasbor UKM</span>
+                    <span class="hidden ml-2 xs:block">Riwayat Keuangan</span>
                 </a>
 
 

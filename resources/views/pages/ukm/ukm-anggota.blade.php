@@ -55,10 +55,8 @@
                         <path <path
                             d="M12 3H4c-.6 0-1 .4-1 1v8c0 .6.4 1 1 1h8c.6 0 1-.4 1-1V4c0-.6-.4-1-1-1zm0 9H4V4h8v8z" />
                     </svg>
-                    <span class="hidden ml-2 xs:block">Keuangan UKM</span>
+                    <span class="hidden ml-2 xs:block">Riwayat Keuangan</span>
                 </a>
-
-
 
             </div>
 
