@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalisaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\UkmDanaController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\UkmController;
+use App\Http\Controllers\AnalisaChatbotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +58,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/ukm-dana/{id}', [UkmDanaController::class, 'index'])->name('ukm-dana');
     Route::get('/ukm-get-ukm-dana-json/{id}', [UkmDanaController::class, 'getUkmDanaJson'])->name('ukm-get-ukm-dana-json');
 
+    // Chatbot
+    Route::get('/analisa-chatbot', [AnalisaChatbotController::class, 'index'])->name('analisa-chatbot');
+    Route::post('/analisa-chatbot-chat', [AnalisaChatbotController::class, 'chat'])->name('chatbot.chat');
+
+
+    
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota');
 

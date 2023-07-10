@@ -29,6 +29,8 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    // 'openai_api_key' => env('OPENAI_API_KEY'),
+    // 'openai_api_url' => env('OPENAI_API_URL'),
 
     /*
     |--------------------------------------------------------------------------
