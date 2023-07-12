@@ -50,6 +50,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Kegiatan
     Route::get('/ukm-get-ukm-detail/{id}', [UkmController::class, 'getUkmDetail'])->name('ukm-get-ukm-detail');
     Route::get('/ukm-get-ukm-detail-json/{id}', [UkmController::class, 'getUkmDetailJson'])->name('ukm-get-ukm-detail-json');
+    Route::get('/kegiatan/detail/get-feedback-kegiatan-data/{kegiatan_id}', [KegiatanDetailController::class, 'getFeedbackKegiatanData'])->name('kegiatan-detail-get-feedback-kegiatan-data');
+
+
 
     // Asset
     Route::get('/ukm-aset/{id}', [UkmAssetController::class, 'assetPage'])->name('ukm-aset');
@@ -61,7 +64,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // Chatbot
     Route::get('/analisa-chatbot', [AnalisaChatbotController::class, 'index'])->name('analisa-chatbot');
-    Route::post('/analisa-chatbot-chat', [AnalisaChatbotController::class, 'chat'])->name('chatbot.chat');
+Route::post('/analisa-chatbot-chat', [AnalisaChatbotController::class, 'chat'])->name('chatbot.chat');
+
 
 
     
@@ -71,6 +75,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Kegiatan
     Route::get('/kegiatan', [KegiatanController::class, 'kegiatan'])->name('kegiatan');
     Route::get('/kegiatan/detail/{id}', [KegiatanDetailController::class, 'detail'])->name('kegiatan-detail');
+    Route::get('/kegiatan/detail/get-feedback-kegiatan-data/{id}', [KegiatanDetailController::class, 'getFeedbackKegiatanData'])->name('kegiatan-detail-get-feedback-kegiatan-data');
+
     
     Route::get('/kegiatan/partisipan', [KegiatanController::class, 'partisipan'])->name('partisipan');
     Route::get('/keuangan', [KeuanganController::class, 'keuangan'])->name('keuangan');

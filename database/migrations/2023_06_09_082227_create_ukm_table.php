@@ -78,6 +78,7 @@ return new class extends Migration {
             $table->decimal('dana', 12, 2);
             $table->date('waktu_transaksi');
             $table->string('tipe_transaksi');
+            $table->string('laporan_keuangan')->nullable();
             $table->unsignedBigInteger('kegiatan_id')->nullable();
             $table->unsignedBigInteger('aset_id')->nullable();
             $table->timestamps();

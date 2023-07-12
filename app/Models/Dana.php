@@ -10,7 +10,7 @@ class Dana extends Model
 {
     use HasFactory;
     protected $table = 'dana';
-    protected $fillable = ['nama', 'deskripsi', 'dana', 'waktu_transaksi', 'tipe_transaksi', 'keuangan_id'];
+    protected $fillable = ['nama', 'deskripsi', 'dana', 'waktu_transaksi', 'tipe_transaksi', 'keuangan_id', 'laporan_keuangan'];
 
     public function asset()
     {

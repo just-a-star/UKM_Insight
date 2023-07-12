@@ -8,8 +8,19 @@ use App\Models\DataFeed;
 use App\Models\Kegiatan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Models\FeedbackKegiatan;
 class KegiatanController extends Controller
 {
+    public function getFeedbackKegiatanData($kegiatanId)
+    {
+        $feedbacks = FeedbackKegiatan::select('rating', DB::raw('COUNT(*) as count'))
+            ->where('kegiatan_id', $kegiatanId)
+            ->groupBy('rating')
+            ->get();
+        // dd($feedbacks);
+        return response()->json($feedbacks);
+    }
+    
     public function kegiatan()
     {
         $dataKegiatan = $this->getKegiatanData();

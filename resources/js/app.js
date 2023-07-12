@@ -17,6 +17,7 @@ import dasborAngkatan from "./components/dasbor-angkatan";
 import dasborUkmAktif from "./components/dasbor-ukm-aktif";
 import dasborSkalaKegiatan from "./components/dasbor-skala-kegiatan-card";
 import { initializeKegiatanFilter } from "./kegiatan-filter";
+import feedbackKegiatanChart from "./components/kegiatan-rating";
 
 
 window.Alpine = Alpine;
@@ -130,4 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
     dasborUkmAktif();
     dasborSkalaKegiatan();
     initializeKegiatanFilter();
+    feedbackKegiatanChart();
+    
 });

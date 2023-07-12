@@ -34,6 +34,10 @@
 
         <x-kegiatan.kegiatan-feedback-chart :dataKegiatan="$dataKegiatan" />
 
+        <x-kegiatan.kegiatan-partisipan-card :dataKegiatan="$dataKegiatan" />
+
+        <x-kegiatan.kegiatan-dana-card :dataKegiatan="$dataKegiatan" />
+
     </div>
     </div>
 
