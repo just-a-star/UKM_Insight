@@ -1,17 +1,9 @@
 import "./bootstrap";
 
 import Alpine from "alpinejs";
-
-// Import Chart.js
 import { Chart } from "chart.js";
-
-// Import flatpickr
 import flatpickr from "flatpickr";
-
-// Import TailwindCSS variables
 import { tailwindConfig } from "./utils";
-
-// import component from './components/component';
 import dashboardCard01 from "./components/dashboard-card-01";
 import dashboardCard02 from "./components/dashboard-card-02";
 import dashboardCard03 from "./components/dashboard-card-03";
@@ -24,13 +16,12 @@ import dashboardCard11 from "./components/dashboard-card-11";
 import dasborAngkatan from "./components/dasbor-angkatan";
 import dasborUkmAktif from "./components/dasbor-ukm-aktif";
 import dasborSkalaKegiatan from "./components/dasbor-skala-kegiatan-card";
+import { initializeKegiatanFilter } from "./kegiatan-filter";
 
-// Call Alpine
+
 window.Alpine = Alpine;
 Alpine.start();
 
-// Define Chart.js default settings
-/* eslint-disable prefer-destructuring */
 Chart.defaults.font.family = '"Inter", sans-serif';
 Chart.defaults.font.weight = "500";
 Chart.defaults.plugins.tooltip.borderWidth = 1;
@@ -43,10 +34,8 @@ Chart.defaults.plugins.tooltip.caretPadding = 20;
 Chart.defaults.plugins.tooltip.cornerRadius = 4;
 Chart.defaults.plugins.tooltip.padding = 8;
 
-// Register Chart.js plugin to add a bg option for chart area
 Chart.register({
     id: "chartAreaPlugin",
-    // eslint-disable-next-line object-shorthand
     beforeDraw: (chart) => {
         if (
             chart.config.options.chartArea &&
@@ -56,7 +45,6 @@ Chart.register({
             const { chartArea } = chart;
             ctx.save();
             ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
-            // eslint-disable-next-line max-len
             ctx.fillRect(
                 chartArea.left,
                 chartArea.top,
@@ -69,7 +57,6 @@ Chart.register({
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Light switcher
     const lightSwitches = document.querySelectorAll(".light-switch");
     if (lightSwitches.length > 0) {
         lightSwitches.forEach((lightSwitch, i) => {
@@ -109,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
-    // Flatpickr
+
     flatpickr(".datepicker", {
         mode: "range",
         static: true,
@@ -121,16 +108,15 @@ document.addEventListener("DOMContentLoaded", () => {
         nextArrow:
             '<svg class="fill-current" width="7" height="11" viewBox="0 0 7 11"><path d="M1.4 10.8L0 9.4l4-4-4-4L1.4 0l5.4 5.4z" /></svg>',
         onReady: (selectedDates, dateStr, instance) => {
-            // eslint-disable-next-line no-param-reassign
             instance.element.value = dateStr.replace("to", "-");
             const customClass = instance.element.getAttribute("data-class");
             instance.calendarContainer.classList.add(customClass);
         },
         onChange: (selectedDates, dateStr, instance) => {
-            // eslint-disable-next-line no-param-reassign
             instance.element.value = dateStr.replace("to", "-");
         },
     });
+
     dasborAngkatan();
     dashboardCard01();
     dashboardCard02();
@@ -143,4 +129,5 @@ document.addEventListener("DOMContentLoaded", () => {
     dashboardCard11();
     dasborUkmAktif();
     dasborSkalaKegiatan();
+    initializeKegiatanFilter();
 });

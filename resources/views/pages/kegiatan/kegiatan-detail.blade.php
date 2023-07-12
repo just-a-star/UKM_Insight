@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="w-full px-4 py-8 mx-auto max-w-9xl sm:px-6 lg:px-8">
+    <div class="mx-auto w-full max-w-9xl px-4 py-8 sm:px-6 lg:px-8">
 
         <!-- Welcome banner -->
         <x-dashboard.welcome-banner />
@@ -12,9 +12,9 @@
             <x-dashboard.dashboard-avatars  /> --}}
 
             <!-- Right: Actions -->
-            <div class="flex justify-end grid-flow-col gap-2 sm:auto-cols-max sm:justify-end">
+            <div class="flex grid-flow-col justify-end gap-2 sm:auto-cols-max sm:justify-end">
 
-                
+
             </div>
         </div>
 
@@ -27,7 +27,12 @@
 
         {{-- Kategori kegiatan --}}
         {{-- Tabel kegiatan --}}
-        <x-kegiatan.kegiatan-card :dataKegiatan="$dataKegiatan" />
+        <x-kegiatan.kegiatan-detail-card :dataKegiatan="$dataKegiatan" />
+
+
+        <x-kegiatan.kegiatan-feedback-card :dataKegiatan="$dataKegiatan" />
+
+        <x-kegiatan.kegiatan-feedback-chart :dataKegiatan="$dataKegiatan" />
 
     </div>
     </div>

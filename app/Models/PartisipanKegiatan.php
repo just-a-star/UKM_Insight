@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class PartisipanKegiatan extends Model
 {
     protected $table = 'partisipan_kegiatan';
 
     protected $fillable = [
-        'role',
+        'role', 'anggota_id', 'kegiatan_id'
     ];
 
     public function kegiatan()
     {
-        return $this->belongsTo(Kegiatan::class, 'anggota_id');
+        return $this->belongsTo(Kegiatan::class, 'kegiatan_id');
     }
 
     public function partisipanKegiatan()

@@ -12,6 +12,7 @@ use App\Http\Controllers\UkmDanaController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\UkmController;
 use App\Http\Controllers\AnalisaChatbotController;
+use App\Http\Controllers\KegiatanDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +68,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota');
 
+    // Kegiatan
     Route::get('/kegiatan', [KegiatanController::class, 'kegiatan'])->name('kegiatan');
+    Route::get('/kegiatan/detail/{id}', [KegiatanDetailController::class, 'detail'])->name('kegiatan-detail');
+    
     Route::get('/kegiatan/partisipan', [KegiatanController::class, 'partisipan'])->name('partisipan');
     Route::get('/keuangan', [KeuanganController::class, 'keuangan'])->name('keuangan');
     Route::get('/keuangan/dana', [KeuanganController::class, 'dana'])->name('dana');

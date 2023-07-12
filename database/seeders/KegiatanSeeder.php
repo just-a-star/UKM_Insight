@@ -30,6 +30,7 @@ class KegiatanSeeder extends Seeder
                 'skala' => 'Lokal',
                 'kategori' => 'Workshop',
                 'tgl_pelaksanaan' => '2023-02-15',
+                'proposal' => 'https://drive.google.com/file/d/1I7teXNRCRUHxufZbEJfPL-DTKkqyc6xv/view?usp=sharing',
                 'ukm_id' => $ukmPhotography->id,
             ],
             [
@@ -104,6 +105,7 @@ class KegiatanSeeder extends Seeder
                 'skala' => 'Nasional',
                 'kategori' => 'Kompetisi',
                 'tgl_pelaksanaan' => '2023-07-05',
+                'proposal'=> 'https://drive.google.com/file/d/1gYafcOuF3fhPdvxa0THcpw57lOmqso5Q/view?usp=sharing',
                 'ukm_id' => $ukmProgramming->id,
             ],
             [

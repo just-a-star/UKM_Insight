@@ -5,22 +5,34 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\DataFeed;
+use App\Models\Kegiatan;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 class KegiatanController extends Controller
 {
     public function kegiatan()
     {
-        $dataFeed = new DataFeed();
-
-        return view('pages/kegiatan/kegiatan', compact('dataFeed'));
+        $dataKegiatan = $this->getKegiatanData();
+        
+        return view('pages/kegiatan/kegiatan', compact('dataKegiatan'));
     }
-    public function partisipan(){
-        $dataFeed = new DataFeed();
-
-        return view('pages/kegiatan/partisipan', compact('dataFeed'));
+    
+    public function getKegiatanData()
+    {
+        $kegiatan = Kegiatan::all();
+        
+        return $kegiatan;
     }
-
+    public function getKegiatanDataById($id)
+    {
+        $kegiatan = DB::select("
+            SELECT kegiatan.id, kegiatan.nama_kegiatan, kegiatan.tgl_pelaksanaan, kegiatan.skala, kegiatan.lokasi, kegiatan.keterangan, kegiatan.created_at, kegiatan.updated_at, users.name
+            FROM kegiatan
+            INNER JOIN users ON kegiatan.user_id = users.id
+            WHERE kegiatan.id = $id
+        ");
+        return response()->json($kegiatan);
+    }
     public function getSkalaKegiatanDistribution()
 {
     $skalaDistribution = DB::select("

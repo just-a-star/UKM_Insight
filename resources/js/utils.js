@@ -32,3 +32,12 @@ export const formatThousands = (value) => Intl.NumberFormat('en-US', {
   maximumSignificantDigits: 3,
   notation: 'compact',
 }).format(value);
+
+export function formatDate(dateString) {
+  const [year, month, day] = dateString.split("-");
+  return `${year}-${padZero(month)}-${padZero(day)}`;
+}
+
+function padZero(value) {
+  return value.toString().padStart(2, "0");
+}

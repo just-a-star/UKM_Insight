@@ -61,6 +61,7 @@ return new class extends Migration {
             $table->string('skala');
             $table->string('kategori');
             $table->date('tgl_pelaksanaan');
+            $table->string('proposal')->nullable();
             $table->timestamps();
             $table
                 ->foreign('ukm_id')

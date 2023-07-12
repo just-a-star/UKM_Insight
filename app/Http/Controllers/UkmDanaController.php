@@ -32,6 +32,7 @@ public function getDanaJson($id)
 
     foreach ($danaList as $dana) {
         $data[] = [
+            'id' => $id,
             'nama' => $dana->nama,
             'jumlah' => $dana->jumlah,
             'keterangan' => $dana->keterangan,
